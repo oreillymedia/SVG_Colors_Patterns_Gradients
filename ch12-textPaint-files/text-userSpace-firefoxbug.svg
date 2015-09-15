@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 400 500" width="400px" height="500px"
+     xml:lang="en">
+    <title>Painting Text FF Bug</title>
+    <style type="text/css">
+svg {
+        fill: url(#pat) gray; 
+        stroke: navy;
+        font-size: 50px;
+}
+svg:hover {fill: url(#obb) gray;}
+svg:active {fill: url(#grad) gray;}
+    </style>
+  <linearGradient id="grad" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="royalBlue" />
+    <stop offset="1" stop-color="hotPink" />
+  </linearGradient>
+  <linearGradient id="obb" gradientUnits="objectBoundingBox"
+                  xlink:href="#grad" />
+  <pattern id="pat" width="10%" height="10%"
+           patternUnits="userSpaceOnUse">
+    <rect width="8%" height="8%" 
+          fill="url(#obb)"/>
+  </pattern>
+  <rect x="25%" y="25%" 
+        width="50%" height="50%"/>
+  <text x="50" y="50">Gradient</text>
+  <text x="50" y="50 150 100 200 150 250 200 300"
+        >Gradient</text>
+  <text x="50" dy="50 50 50 50 50 50 50 50 50"
+        >Gradient</text>
+</svg>

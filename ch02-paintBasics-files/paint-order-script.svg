@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 400 80" width="4in" height="0.8in"
+     xml:lang="en">
+    <title>Faking paint-order with JavaScript</title>
+    <style type="text/css">
+        .outlined {
+          text-anchor: middle;
+          font-size: 80px; 
+          font-family: sans-serif;
+          fill: mediumBlue; 
+          stroke: gold;
+          stroke-width: 7;
+          paint-order: stroke;
+        }
+    </style>
+    <rect fill="navy" height="100%" width="100%" />
+    <text x="50%" y="70" class="outlined"
+          >Outlined</text>
+    <script><![CDATA[
+(function(){
+    var NS = {svg: "http://www.w3.org/2000/svg",
+              xlink: "http://www.w3.org/1999/xlink"
+             };
+    var index = 10000;
+
+    var t = document.getElementsByClassName("outlined");   //<1>
+    if ( t && 
+        (t[0].style["paint-order"] === undefined )){       //<2>
+        Array.prototype.forEach.call(t, fakeOutline);      //<3>
+    }
+
+    function fakeOutline(el){
+        el.id = el.id || "el-" + index++;                  //<4>
+
+        var g1 = document.createElementNS(NS.svg, "g");    //<5>
+        g1.setAttribute("class", el.getAttribute("class") );
+        el.removeAttribute("class");
+        el.parentNode.insertBefore(g1, el);
+
+        var g2 = document.createElementNS(NS.svg, "g");    //<6>
+        g2.style["fill"] = "none";
+        g2.insertBefore(el, null);
+        g1.insertBefore(g2, null);
+        
+        var u = document.createElementNS(NS.svg, "use");   //<7>
+        u.setAttributeNS(NS.xlink, "href", "#" + el.id);
+        u.style["stroke"] = "none";
+        g1.insertBefore(u, null);
+    }
+})();
+]]> </script>
+</svg>

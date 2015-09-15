@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Angling CSS gradients versus using corners</title>
+
+    <style type='text/css'>
+    html, body { 
+        height: 100%; 
+        margin: 0; padding: 0;
+    }
+    body {
+        background: linear-gradient(to bottom left, 
+                        white, red 50%, blue 50%, white);
+    }
+    div {
+        background: linear-gradient(-45deg, 
+                        white, red 50%, blue 50%, white);
+        position: absolute;
+        width: 50%; height: 50%;
+        left: 25%; top: 25%;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="3in" >
+    <title xml:lang="en">Striped Pattern</title>
+    <style type="text/css">
+        svg {
+            stroke-width: 6px;
+        }
+    </style>
+    <pattern id="stripes" x="5%" width="10%" height="100%">
+        <line x1="3" x2="3" y2="100%" stroke="maroon" />
+        <line x1="9" x2="9" y2="100%" stroke="gold" />
+        <line x1="15" x2="15" y2="100%" stroke="tomato" />
+    </pattern>
+    
+    <g stroke="royalBlue" fill="url(#stripes)">
+        <rect x="0.1in" y="0.1in" width="3.8in" height="1in" />
+        <ellipse cx="50%" cy="2.1in" rx="1.2in" ry="0.8in" />
+    </g>
+</svg>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Re-using Symbols with Gradients</title>
+    <style type='text/css'>
+        html {
+            background-color: #222;
+            color: lightSkyBlue;
+        }
+        svg.defs-only {
+            display: block;
+            position: absolute;
+            height: 0; width: 0;
+            overflow: hidden;
+        }
+        li {
+            display: block;
+            text-align: center;
+            list-style: none;
+            font-size: larger;
+        }
+        svg[role="slider"]  {
+            display: block;
+            margin: auto;
+            width: 10em;
+            max-width: 100%;
+            height: auto;
+            max-height: 2em;
+        }        
+        .star {
+            fill: url(#silver-shine);
+        }
+        [aria-valuenow="1"] .star:nth-of-type(-n+1),
+        [aria-valuenow="2"] .star:nth-of-type(-n+2),
+        [aria-valuenow="3"] .star:nth-of-type(-n+3),
+        [aria-valuenow="4"] .star:nth-of-type(-n+4),
+        [aria-valuenow="5"] .star:nth-of-type(-n+5)
+        {
+            fill: url(#gold-shine);
+        }
+    </style>
+</head>
+<body>
+    <svg class="defs-only" 
+         aria-hidden="true" focusable="false" width="0" height="0">
+        <linearGradient id="silver-shine" spreadMethod="repeat"
+                        gradientTransform="rotate(40) scale(0.8)" >
+            <stop offset="0" stop-color="gray" />
+            <stop offset="0.35" stop-color="silver" />
+            <stop offset="1" stop-color="gray" />
+        </linearGradient>
+        <linearGradient id="gold-shine" xlink:href="#silver-shine" >
+            <stop offset="0" stop-color="gold" />
+            <stop offset="0.35" stop-color="lightYellow" />
+            <stop offset="1" stop-color="gold" />
+        </linearGradient>        
+        <symbol id="star" viewBox="0 0 200 200">
+            <path d="M100,10 L150,140 20,50 180,50 50,140 Z" />
+        </symbol>
+    </svg>
+    <h1>Image Format Awesomeness:</h1>
+    <ol>
+        <li>
+            <abbr id="svg" title="Scalable Vector Graphics">SVG</abbr>
+            <svg viewBox="0 0 5 1"
+                 role="slider" aria-labelledby="svg"
+                 aria-valuemin="0" aria-valuemax="5"
+                 aria-valuenow="5" aria-readonly="true">
+                <use class="star" xlink:href="#star" width="1"/>
+                <use class="star" xlink:href="#star" width="1" x="1"/>
+                <use class="star" xlink:href="#star" width="1" x="2"/>
+                <use class="star" xlink:href="#star" width="1" x="3"/>
+                <use class="star" xlink:href="#star" width="1" x="4"/>
+            </svg>
+        </li>
+        <li>
+            <abbr id="png" title="Portable Network Graphics">PNG</abbr>
+            <svg viewBox="0 0 5 1"
+                 role="slider" aria-labelledby="png"
+                 aria-valuemin="0" aria-valuemax="5"
+                 aria-valuenow="4" aria-readonly="true">
+                <use class="star" xlink:href="#star" width="1"/>
+                <use class="star" xlink:href="#star" width="1" x="1"/>
+                <use class="star" xlink:href="#star" width="1" x="2"/>
+                <use class="star" xlink:href="#star" width="1" x="3"/>
+                <use class="star" xlink:href="#star" width="1" x="4"/>
+            </svg>
+        </li>
+        <li>
+            <abbr id="gif"title="Graphics Interchange Format">GIF</abbr>
+            <svg viewBox="0 0 5 1"
+                 role="slider" aria-labelledby="gif"
+                 aria-valuemin="0" aria-valuemax="5"
+                 aria-valuenow="3" aria-readonly="true">
+                <use class="star" xlink:href="#star" width="1"/>
+                <use class="star" xlink:href="#star" width="1" x="1"/>
+                <use class="star" xlink:href="#star" width="1" x="2"/>
+                <use class="star" xlink:href="#star" width="1" x="3"/>
+                <use class="star" xlink:href="#star" width="1" x="4"/>
+            </svg>
+        </li>
+        <li>
+            <abbr id="bmp" title="Bitmap (Windows)">BMP</abbr>
+            <svg viewBox="0 0 5 1"
+                 role="slider" aria-labelledby="bmp"
+                 aria-valuemin="0" aria-valuemax="5"
+                 aria-valuenow="1" aria-readonly="true">
+                <use class="star" xlink:href="#star" width="1"/>
+                <use class="star" xlink:href="#star" width="1" x="1"/>
+                <use class="star" xlink:href="#star" width="1" x="2"/>
+                <use class="star" xlink:href="#star" width="1" x="3"/>
+                <use class="star" xlink:href="#star" width="1" x="4"/>
+            </svg>
+        </li>
+    </ol>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xml:lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Positioning CSS gradients using keywords</title>
+    <style type='text/css'>
+    html, body { 
+        height: 100%; 
+        margin: 0; padding: 0;
+    }
+    body {
+        background: linear-gradient(to bottom left, 
+                        white, red 50%, blue 50%, white);
+    }
+    img {
+        position: absolute;
+        width: 50%; height: 50%;
+        left: 25%; top: 25%;
+    }
+    </style>
+</head>
+<body>
+    <img src="gradient-vector-diagonals.svg">
+</body>
+</html>
+

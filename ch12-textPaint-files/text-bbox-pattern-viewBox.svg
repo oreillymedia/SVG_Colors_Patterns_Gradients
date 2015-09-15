@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400px" height="70px" viewBox="0 0 400 70"
+     xml:lang="en">
+    <title>Adjustable Stripes</title>
+    <style type="text/css">
+        text {
+            font-size: 50px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+    </style>
+    <pattern id="thick-stripes" width="100%" height="40%" 
+             viewBox="0 0 2 2" preserveAspectRatio="none">
+        <rect width="2" height="1" fill="indigo" />
+        <rect width="2" height="1" y="1" 
+              fill="royalBlue" />
+    </pattern>
+    <pattern id="thin-stripes" height="12.5%" 
+             xlink:href="#thick-stripes" />
+    
+    <text x="50%" y="1em" dx="-10" fill="url(#thick-stripes)"
+          text-anchor="end">Stripy</text>
+    <text x="50%" y="1em" dx="10" fill="url(#thin-stripes)"
+          text-anchor="start">Stripy</text> 
+</svg>

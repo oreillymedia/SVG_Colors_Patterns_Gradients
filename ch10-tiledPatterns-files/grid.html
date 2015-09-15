@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Photo Grid Overlay</title>
+    <style type='text/css'>
+        body { 
+            padding: 0.5em 0.25em;
+            background-color: lightGray;
+        }
+        fieldset {
+            display: block;
+            background-color: white;
+            margin-bottom: 1em;             <!--1-->
+        }
+        legend {
+            background-color: inherit;
+            border-radius: 0.25em;
+            padding: 0 0.2em;
+        }
+        svg {
+            width: 100%;
+            min-height: 300px;
+            max-height: 100vh;              <!--2-->
+            shape-rendering: crispEdges;
+        }
+        .grid {
+            fill: none;
+            pointer-events: none;           <!--3-->
+        }
+        .grid4 .grid {
+            fill: url(#grid4);              <!--4-->
+        }
+        .grid9 .grid {
+            fill: url(#grid9);
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="grid-options" 
+              role="radiogroup" aria-controls="graphics">
+        <legend>Show Grid:</legend>                        <!--1-->
+        <label>
+            <input type="radio" name="grid" value="none" checked>
+            None</label>
+        <label><input type="radio" name="grid" value="grid4">
+            2&times;2</label>
+        <label><input type="radio" name="grid" value="grid9">
+            3&times;3</label>
+    </fieldset>
+    
+    <svg id="graphics" viewBox="0 0 400 400">
+        <title>Photo View</title>
+        <pattern id="grid4" width="50%" height="50%" >     <!--2-->
+            <g stroke="gold" stroke-width="4px">
+                <line x2="100%" />                         <!--3-->
+                <line y2="100%" />
+            </g>
+        </pattern>
+        <pattern id="grid9" xlink:href="#grid4"
+                 width="33.33333%" height="33.33333%" />   <!--4-->
+
+        <g>
+            <title>Full image</title>
+            <image width="400" height="300"
+                   xlink:href="cat.jpeg" />
+            <rect width="400" height="300" class="grid" /> <!--5-->
+        </g>
+        <g transform="translate(140,310)">
+            <title>Thumbnail</title>
+            <image width="120" height="90"
+                   xlink:href="cat.jpeg" />
+            <rect width="120" height="90" class="grid" />
+        </g>
+    </svg>
+    <script>
+        document.getElementById("grid-options")
+           .addEventListener("change", updateGrid);        //<6>
+        
+        function updateGrid(e) {
+            var svg = document.getElementById("graphics"),
+                radio = e.target;
+            if (radio.checked) {
+                svg.setAttribute("class", radio.value);    //<7>
+            }
+        }
+    </script>
+</body>
+</html>

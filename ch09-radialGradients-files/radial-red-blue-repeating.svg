@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Repeating Radial Gradients</title>
+    <radialGradient id="red-blue" spreadMethod="pad">
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="1"/>
+    </radialGradient>
+    <radialGradient id="repeat" spreadMethod="repeat"
+                    xlink:href="#red-blue" />
+    <radialGradient id="reflect" spreadMethod="reflect"
+                    xlink:href="#red-blue" />
+    
+    <rect height="1in" width="32%" x="0" fill="url(#red-blue)" />
+    <rect height="1in" width="32%" x="34%" fill="url(#repeat)" /> 
+    <rect height="1in" width="32%" x="68%" fill="url(#reflect)" />
+</svg> 

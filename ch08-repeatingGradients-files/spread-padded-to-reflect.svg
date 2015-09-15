@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Reflected Gradient</title>
+    <linearGradient id="divider" spreadMethod="reflect"
+                    x1="45%" x2="55%" >                    <!--1-->
+        <stop stop-color="lightSteelBlue" offset="0%"/>
+        <stop stop-color="darkRed" offset="50%"/>
+        <stop stop-color="salmon" offset="100%"/>          <!--2-->
+    </linearGradient>
+    <rect width="100%" height="100%" fill="url(#divider)" /> 
+</svg>     

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="4.5in" viewBox="0 0 400 450">
+    <title xml:lang="en">Testing Style Inheritance on Pinstripe Patterns</title>
+    <g fill="#444" stroke="lightSkyBlue">
+        <pattern id="pinstripe" patternUnits="userSpaceOnUse"
+                 width="30" height="30">
+            <rect id="r" width="30" height="30" 
+                  stroke="none" />
+            <line id="l" x1="15" y="0" x2="15" y2="30" 
+                  fill="none" />
+        </pattern>
+        <pattern id="diagonals" xlink:href="#pinstripe"
+                 patternTransform="rotate(45)" />
+        <pattern id="checks" xlink:href="#pinstripe">
+            <use xlink:href="#r" />
+            <use xlink:href="#l" />
+            <use xlink:href="#l" transform="rotate(90, 15, 15)"/>
+        </pattern>
+        <pattern id="diamonds" xlink:href="#checks"
+                 patternTransform="rotate(45)" />
+    </g>
+    <g fill="tan" stroke="saddleBrown">
+        <pattern id="diamonds-tan" xlink:href="#diamonds"/>
+        <pattern id="checks-tan" xlink:href="#checks"/>
+    </g>
+    
+    <rect width="200" height="150"
+          fill="url(#pinstripe)" />
+    <rect width="200" height="150" x="200"
+          fill="url(#diagonals)" />
+    <rect width="200" height="150" y="150"
+          fill="url(#diamonds)" />
+    <rect width="200" height="150" x="200" y="150"
+          fill="url(#checks)" />
+    <rect width="200" height="150" y="300"
+          fill="url(#checks-tan)" />
+    <rect width="200" height="150" x="200" y="300"
+          fill="url(#diamonds-tan)" />
+</svg>

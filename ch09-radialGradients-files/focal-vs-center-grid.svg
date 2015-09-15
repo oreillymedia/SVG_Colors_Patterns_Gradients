@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="3in"> 
+    <title xml:lang="en">Focus Point Versus Center Point</title>
+    <defs>
+        <radialGradient id="center" spreadMethod="reflect" 
+                        r="30%">                           <!--1-->
+            <stop stop-color="darkRed" offset="0"/>
+            <stop stop-color="lightYellow" offset="1"/>
+        </radialGradient>
+        <radialGradient id="left" xlink:href="#center" 
+                        fx="25%"/>                         <!--2-->
+        <radialGradient id="right" xlink:href="#center" 
+                        fx="75%"/>
+
+        <radialGradient id="left-up" xlink:href="#left" 
+                        cy="25%"/>                         <!--3-->
+        <radialGradient id="left-down" xlink:href="#left" 
+                        cy="75%"/>
+        <radialGradient id="center-up" xlink:href="#center" 
+                        cy="25%"/>
+        <radialGradient id="center-down" xlink:href="#center" 
+                        cy="75%"/>
+        <radialGradient id="right-up" xlink:href="#right" 
+                        cy="25%"/>
+        <radialGradient id="right-down" xlink:href="#right" 
+                        cy="75%"/>
+        
+        <rect id="r" width="30%" height="30%" />           <!--4-->
+    </defs>
+    
+    <use xlink:href="#r" x="0%"  y="0%"  fill="url(#left-up)"/>
+    <use xlink:href="#r" x="35%" y="0%"  fill="url(#center-up)"/>
+    <use xlink:href="#r" x="70%" y="0%"  fill="url(#right-up)"/>
+    <use xlink:href="#r" x="0%"  y="35%" fill="url(#left)"/>
+    <use xlink:href="#r" x="35%" y="35%" fill="url(#center)"/>
+    <use xlink:href="#r" x="70%" y="35%" fill="url(#right)"/>
+    <use xlink:href="#r" x="0%"  y="70%" fill="url(#left-down)"/>
+    <use xlink:href="#r" x="35%" y="70%" fill="url(#center-down)"/>
+    <use xlink:href="#r" x="70%" y="70%" fill="url(#right-down)"/>
+</svg> 

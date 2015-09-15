@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400" height="500" viewBox="0,0 400,500">
+    <title xml:lang="en">Transforming shapes, gradients, or both
+    </title>
+    
+    <linearGradient id="stripe" x2="0" y2="100%">        <!--1-->
+        <stop offset="0" stop-color="yellow"/>
+        <stop offset="0.1" stop-color="gold"/>
+        <stop offset="0.5" stop-color="tomato"/>
+        <stop offset="0.5" stop-color="blueViolet"/>
+        <stop offset="0.9" stop-color="indigo"/>
+        <stop offset="1" stop-color="midnightblue"/>
+    </linearGradient>
+    <linearGradient id="stripe-transformed" xlink:href="#stripe"
+                    gradientTransform="skewY(25)" />     <!--2-->
+    
+    <g fill="url(#stripe)" >                             <!--3-->
+        <rect height="190" width="190" x="5" y="5" /> 
+        <rect height="190" width="190" x="5" y="5"
+              transform="translate(200,0) skewY(25)"/>   <!--4-->
+    </g>
+    <g transform="translate(0,200)"
+       fill="url(#stripe-transformed)">
+        <rect height="190" width="190" x="5" y="5" />    <!--5-->
+        <rect height="190" width="190" x="5" y="5"
+              transform="translate(200,0) skewY(25)"/>   <!--6-->
+    </g>
+</svg>  
+

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="3in" >
+    <title xml:lang="en">Bounding Box Striped Pattern</title>
+    <style type="text/css">
+        svg {
+            stroke-width: 6px;
+        }
+    </style>
+    <pattern id="stripes-box" x="0.05" width="0.1" height="1"
+             patternContentUnits="objectBoundingBox" > 
+        <rect width="0.025" height="1" fill="maroon" />
+        <rect x="0.025" width="0.025" height="1" fill="gold" /> 
+        <rect x="0.050" width="0.025" height="1" fill="tomato" />
+    </pattern>
+    
+    <g stroke="royalBlue" fill="url(#stripes-box)">
+        <rect x="0.1in" y="0.1in" width="3.8in" height="1in" />
+        <ellipse cx="50%" cy="2.1in" rx="1.2in" ry="0.8in" />
+    </g>
+</svg>

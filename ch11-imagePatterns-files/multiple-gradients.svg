@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="6.5in" viewBox="0 0 400 650">
+    <title xml:lang="en">Multiple gradients</title>    
+    <defs>
+        <linearGradient id="red-blue" y2="1">              <!--1-->
+            <stop stop-color="red" offset="0"/>
+            <stop stop-color="blue" offset="1"/>            
+        </linearGradient>
+        <linearGradient id="yellow-violet" y1="1" y2="0">  <!--2-->
+            <stop stop-color="yellow" 
+                  stop-opacity="0.9" offset="0.1"/>
+            <stop stop-color="darkMagenta" 
+                  stop-opacity="0" offset="0.5"/>          <!--3-->        
+            <stop stop-color="violet" 
+                  stop-opacity="0.9" offset="0.9"/>            
+        </linearGradient>
+        <radialGradient id="flare" fx="0.2" fy="0.2"
+                        stop-color="white" >               <!--4-->
+            <stop stop-color="inherit" 
+                  stop-opacity="0" offset="0.75"/>
+            <stop stop-color="inherit" 
+                  stop-opacity="0.05" offset="0.85"/>
+            <stop stop-color="inherit" 
+                  stop-opacity="0.2" offset="1"/>
+        </radialGradient>
+        <pattern id="gradient-pattern" width="1" height="1"
+                 patternContentUnits="objectBoundingBox" >   <!--5-->
+            <rect width="1" height="1" fill="url(#red-blue)"/>
+            <rect width="1" height="1" fill="url(#yellow-violet)"/>
+            <rect width="1" height="1" fill="url(#flare)"/>  <!--6-->
+        </pattern>
+    </defs>
+    <g fill="url(#gradient-pattern)">                        <!--7-->
+        <circle cx="200" cy="180" r="180" />
+        <ellipse cx="110" cy="500" rx="110" ry="145" />
+        <text x="400" y="525" text-anchor="end" 
+              font-size="100px" font-family="serif"
+              stroke="indigo">Layers</text>
+    </g>
+</svg>

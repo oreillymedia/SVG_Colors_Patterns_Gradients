@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400px"
+   height="300px"
+   viewBox="0 0 400 300"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r"
+   sodipodi:docname="text-bbox-pattern-inkscape.svg">
+  <metadata
+     id="metadata34">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Text Bounding Box</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="1021"
+     id="namedview32"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="200"
+     inkscape:cy="150"
+     inkscape:window-x="1271"
+     inkscape:window-y="193"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title4">Text Bounding Box</title>
+  <style
+     type="text/css"
+     id="style6">
+        text {
+            font-size: 50px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+    </style>
+  <pattern
+     id="stripes"
+     width="100%"
+     height="20%"
+     patternContentUnits="objectBoundingBox">
+    <!--1-->
+    <rect
+       width="1"
+       height="0.1"
+       fill="indigo"
+       id="rect9" />
+    <rect
+       width="1"
+       height="0.1"
+       y="0.1"
+       fill="royalBlue"
+       id="rect11" />
+    <!--2-->
+  </pattern>
+  <defs
+     id="defs13">
+    <path
+       id="p"
+       d="M250,150 L350,200 250,270" />
+  </defs>
+  <g
+     id="g16"
+     style="fill:url(#stripes)">
+    <!--3-->
+    <text
+       x="200"
+       y="50"
+       dx="-10"
+       id="text18"
+       style="font-size:50px;font-weight:bold;text-anchor:end;font-family:sans-serif">Mixing</text>
+    <text
+       x="200"
+       y="50"
+       dx="10"
+       id="text20"
+       style="font-size:50px;font-weight:bold;text-anchor:start;font-family:sans-serif">BLOCK</text>
+    <!--4-->
+    <text
+       x="40"
+       y="150"
+       id="text22"
+       style="font-size:50px;font-weight:bold;font-family:sans-serif">Three <tspan
+   x="40"
+   dy="60"
+   id="tspan24">line</tspan>
+<tspan
+   x="40"
+   dy="60"
+   id="tspan26">text</tspan>
+</text>
+    <!--5-->
+    <text
+       id="text28"
+       style="font-size:50px;font-weight:bold;font-family:sans-serif">
+      <textPath
+         xlink:href="#p"
+         id="textPath30">TextPath</textPath>
+    </text>
+    <!--6-->
+  </g>
+</svg>

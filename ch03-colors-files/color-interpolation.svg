@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400px" height="400px" viewBox="0 0 400 400" 
+     xml:lang="en">
+    <title>Color interpolation comparison</title>
+    <linearGradient id="sRGB-rainbow">
+        <stop offset="0" stop-color="#F00"/>
+        <stop offset="33.3%" stop-color="#0F0"/>
+        <stop offset="66.7%" stop-color="#00F"/>
+        <stop offset="1" stop-color="#F00"/>
+    </linearGradient>
+    <linearGradient id="linear-rainbow" xlink:href="#sRGB-rainbow" 
+                    color-interpolation="linearRGB" />
+    <linearGradient id="sRGB-gray">
+        <stop offset="0" stop-color="#FFF"/>
+        <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="linear-gray" xlink:href="#sRGB-gray" 
+                    color-interpolation="linearRGB" />
+    
+    <rect fill="url(#sRGB-rainbow)" width="400" height="100"/>    
+    <rect fill="url(#linear-rainbow)" width="400" height="100" y="100"/>
+    <rect fill="url(#sRGB-gray)" width="400" height="100" y="200"/>
+    <rect fill="url(#linear-gray)" width="400" height="100" y="300"/>
+</svg>

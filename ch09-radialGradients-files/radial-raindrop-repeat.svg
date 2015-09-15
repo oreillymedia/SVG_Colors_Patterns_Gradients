@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="2in"> 
+    <title xml:lang="en">Repeating Radial Ripples</title>
+    <radialGradient id="raindrop" spreadMethod="repeat"
+                    gradientUnits="userSpaceOnUse"
+                    cx="30%" cy="70%" r="15px">
+        <stop stop-color="lightSteelBlue" offset="0.4"/>
+        <stop stop-color="darkSlateGray" offset="0.8"/>
+        <stop stop-color="darkSlateBlue" offset="1"/>
+    </radialGradient>    
+    <rect height="100%" width="100%" fill="url(#raindrop)" />
+</svg> 

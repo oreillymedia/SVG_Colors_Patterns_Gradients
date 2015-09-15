@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="4in" height="1.5in" >
+    <title xml:lang="en">Gradient on a Stroke</title>
+    <linearGradient id="red-blue" >
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="1"/>
+    </linearGradient>
+    <rect width="80%" height="50%" x="10%" y="25%" 
+          stroke-width="20%" stroke="url(#red-blue)"
+          fill="none" /> 
+</svg>

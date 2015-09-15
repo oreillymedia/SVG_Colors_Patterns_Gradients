@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Reusing Symbols with Gradients</title>
+    <style type='text/css'>
+        html {
+            background-color: #222;
+            color: lightSkyBlue;
+        }
+        svg.defs-only {
+            display: block;
+            position: absolute;
+            height: 0; width: 0;
+            overflow: hidden;                    <!--1-->
+        }
+        ol {
+            padding: 0;
+        }
+        li {
+            display: block;
+            text-align: center;
+            list-style: none;
+            font-size: larger;
+        }
+        svg.star-rating  {
+            display: block;
+            margin: auto;
+            width: 10em;
+            max-width: 100%;
+            height: auto;
+            max-height: 2em;                     <!--2-->
+        }        
+        .star {
+            fill: url(#silver-shine);            <!--3-->
+        }
+        [aria-valuenow="1"] .star:nth-of-type(-n+1),
+        [aria-valuenow="2"] .star:nth-of-type(-n+2),
+        [aria-valuenow="3"] .star:nth-of-type(-n+3),
+        [aria-valuenow="4"] .star:nth-of-type(-n+4),
+        [aria-valuenow="5"] .star:nth-of-type(-n+5)
+        {
+            fill: url(#gold-shine);              <!--4-->
+        }
+        [data-rating]:not(.initialized)::after {
+            display: block;
+            color: darkgoldenrod;
+            text-shadow: black 1px 1px 1px, 
+                         gold 0 0 3px;
+            content: attr(data-rating);          <!--5-->
+        }
+    </style>
+</head>
+<body>
+    <svg class="defs-only" aria-hidden="true" focusable="false" 
+         width="0" height="0">                                  <!--1-->
+        <linearGradient id="silver-shine" spreadMethod="repeat"
+                        gradientTransform="rotate(40) scale(0.8)" >
+            <stop offset="0" stop-color="gray" />
+            <stop offset="0.35" stop-color="silver" />
+            <stop offset="1" stop-color="gray" />
+        </linearGradient>
+        <linearGradient id="gold-shine" xlink:href="#silver-shine">
+            <stop offset="0" stop-color="gold" />
+            <stop offset="0.35" stop-color="lightYellow" />
+            <stop offset="1" stop-color="gold" />
+        </linearGradient>        
+        <symbol id="star" viewBox="0 0 200 200"> 
+            <path d="M100,10 L150,140 20,50 180,50 50,140 Z" />
+        </symbol>
+    </svg>
+    <h1>Image Format Awesomeness:</h1>
+    <ol>
+        <li id="svg" data-rating="5">                           <!--2-->
+            <abbr title="Scalable Vector Graphics">SVG</abbr>
+        </li>
+        <li id="png" data-rating="4">
+            <abbr title="Portable Network Graphics">PNG</abbr>
+        </li>
+        <li id="gif" data-rating="3">
+            <abbr title="Graphics Interchange Format">GIF</abbr>
+        </li>
+        <li id="bmp" data-rating="1">
+            <abbr title="Bitmap (Windows)">BMP</abbr>
+        </li>
+    </ol>
+    <script>
+(function(){
+    var ns = {svg:"http://www.w3.org/2000/svg",
+                xlink:"http://www.w3.org/1999/xlink"};
+    var maxRating = 5;
+    var index = 0;
+    
+    var ratings = document.querySelectorAll("[data-rating]");   <!--1-->
+    for (var i=0, n=ratings.length; i<n; i++){
+        var r = ratings[i];
+        //add an `id` value if it doesn't exist
+        r.id = r.id || "rating-" + (index++);
+        
+        //parse the rating
+        var value = parseInt(r.getAttribute("data-rating"),10);
+        
+        //create and insert an SVG to represent the rating
+        var s = document.createElementNS(ns.svg, "svg");
+        s.setAttribute("viewBox", "0 0 " + maxRating + " 1");
+        s.setAttribute("class", "star-rating");
+        s.setAttribute("role", "slider");
+        s.setAttribute("aria-labelledby", r.id);
+        s.setAttribute("aria-valuemin", 0);
+        s.setAttribute("aria-valuemax", maxRating);
+        s.setAttribute("aria-valuenow", value);
+        s.setAttribute("aria-readonly", true);                  <!--2-->
+        
+        //create a group and give it a tooltip title
+        var g = document.createElementNS(ns.svg, "g"); 
+        s.insertBefore(g, null);        
+        var t = document.createElementNS(ns.svg, "title");
+        t.textContent = value + " out of " + maxRating;         <!--3-->
+        g.insertBefore(t, g.firstChild);
+        
+        //create and insert the stars into the group
+        for (var j=0; j<maxRating; j++) {
+            var u = document.createElementNS(ns.svg, "use");
+            u.setAttribute("class", "star");
+            u.setAttributeNS(ns.xlink, "href", "#star");
+            u.setAttribute("width", "1");
+            u.setAttribute("x", j);
+            g.insertBefore(u, null);                            <!--4-->
+        }
+        
+        r.insertBefore(s, null);
+        r.classList.add("initialized");                         <!--5-->
+    }
+})();
+    </script>
+</body>
+</html>

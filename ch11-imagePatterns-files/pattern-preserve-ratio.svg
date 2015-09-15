@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="6.5in" viewBox="0 0 400 650">
+    <title xml:lang="en">Sliced Image Pattern</title>    
+    <defs>
+        <linearGradient id="sky" x2="0" y2="1">            <!--1-->
+            <stop stop-color="lightSkyBlue" offset="0"/>     
+            <stop stop-color="deepSkyBlue" offset="1"/>       
+        </linearGradient>
+        <radialGradient id="sunlight" cx="0" cy="0" >
+            <stop stop-color="yellow" 
+                  stop-opacity="0.9" offset="0.2"/>     
+            <stop stop-color="lightYellow" 
+                  stop-opacity="0" offset="1"/>            
+        </radialGradient>
+        <radialGradient id="cloud" fx="0.5" fy="0.15" r="0.6">
+            <stop stop-color="oldLace" offset="0.75"/>
+            <stop stop-color="lightGray" offset="0.9"/>
+            <stop stop-color="darkGray" offset="1"/>
+        </radialGradient>
+        <pattern id="sky-pattern" width="1" height="1"
+                 viewBox="0 0 100 50" 
+                 preserveAspectRatio="xMinYMin slice" >    <!--2-->
+            <rect width="100" height="50" fill="url(#sky)"/>
+            <g fill="url(#cloud)">                         <!--3-->
+                <g>
+                    <circle cx="10" cy="42" r="5" />
+                    <circle cx="6" cy="42" r="3" />
+                    <circle cx="16" cy="43" r="3" />
+                    <circle cx="14" cy="41" r="4" />
+                </g>
+                <g>
+                    <circle cx="20" cy="22" r="7" />
+                    <circle cx="50" cy="22" r="10" />
+                    <circle cx="40" cy="18" r="7" />
+                    <circle cx="45" cy="25" r="9" />
+                    <circle cx="30" cy="25" r="12" />
+                </g>
+                <g>
+                    <circle cx="72" cy="39" r="5" />
+                    <circle cx="77" cy="40" r="3" />
+                    <circle cx="83" cy="41" r="4" />
+                    <circle cx="80" cy="36" r="5" />
+                    <circle cx="76" cy="35" r="3" />
+                    <circle cx="86" cy="39" r="3" />
+                </g>
+            </g>
+            <rect width="50" height="50" fill="url(#sunlight)"/>
+        </pattern>
+    </defs>
+    <g fill="url(#sky-pattern)">                           <!--4-->
+        <rect width="400" height="175" />
+        <text x="200" y="280" textLength="390"
+              text-anchor="middle" font-family="sans-serif"
+              font-size="124px" font-weight="bold" 
+              stroke-width="2" stroke="deepSkyBlue"
+              >Clouds</text>
+        <rect y="290" width="250" height="250" />
+        <rect x="270" y="290" 
+              width="130" height="250" />
+        <rect x="0" y="550" 
+              width="400" height="100" />
+    </g>
+</svg>

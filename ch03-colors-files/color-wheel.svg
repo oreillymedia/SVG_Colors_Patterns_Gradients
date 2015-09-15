@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400px" height="400px" viewBox="0 0 200 200" 
+     xml:lang="en">
+    <title>HSL Color Wheel</title>
+    <defs>                                                 <!--1-->
+        <circle id="center" r="1.5" fill="black"/>
+        <path id="inner" transform="rotate(-15)"
+              d="M0,0L15,0A15,15 0 0 1 12.99,7.5 L0,0Z" /> <!--2-->
+        <path id="middle" transform="rotate(-15)" 
+              d="M15,0L28,0A28,28 0 0 1 24.25,14 
+                 L12.99,7.5 A15,15 0 0 0 15,0Z" />
+        <path id="outer" transform="rotate(-15)" 
+              d="M28,0L40,0A40,40 0 0 1 34.64,20
+                 L24.25,14 A28,28 0 0 0 28,0Z" />
+        <circle id="edge" r="39" fill="none" 
+                stroke="white" stroke-width="2"/>
+    </defs>
+    <style type="text/css">
+        text {
+            text-anchor: middle;
+            font-size: 8px;
+            font-family: sans-serif;
+        }
+    </style>
+    <rect fill="#888" width="100%" height="100%"/>         <!--3-->
+    <svg class="wheel" width="100" height="100" x="0" y="0" 
+         viewBox="-40,-40 80,80">                          <!--4-->
+        <use xlink:href="#center"/>
+        <use xlink:href="#edge"/>
+    </svg>
+    <svg class="wheel" width="100" height="100" x="100" y="0" 
+         viewBox="-40,-40 80,80">
+        <use xlink:href="#center"/>
+        <use xlink:href="#edge"/>
+    </svg>
+    <svg class="wheel" width="100" height="100" x="0" y="100" 
+         viewBox="-40,-40 80,80">
+        <use xlink:href="#center"/>
+        <use xlink:href="#edge"/>
+    </svg>
+    <svg class="wheel" width="100" height="100" x="100" y="100" 
+         viewBox="-40,-40 80,80">
+        <use xlink:href="#center"/>
+        <use xlink:href="#edge"/>
+    </svg>
+    <script><![CDATA[
+(function(){
+    var svgNS = "http://www.w3.org/2000/svg";
+    var xlinkNS = "http://www.w3.org/1999/xlink";
+
+    var wedge = 30; //angle span of each pie piece, in degrees
+    var saturation = ["100%", "75%", "50%", "25%"];             //<1>
+    var lightness = {outer:"75%", middle:"50%", inner:"25%"};   //<2>
+
+    var wheels = document.getElementsByClassName("wheel");      //<3>
+    var h,s,l,w,p,u;
+    for (var i=0, n=wheels.length; i<n; i++){
+        w = wheels[i];
+        s = saturation[i];                                      //<4>
+        for (h=0; h < 360; h += wedge ) {
+            for (p in lightness){                               //<5>
+                l = lightness[p];
+                u = document.createElementNS(svgNS, "use");
+                u.setAttributeNS(xlinkNS, "href", "#"+p);
+                u.setAttribute("transform", "rotate("+h+")" );  //<6>
+                u.style.setProperty("fill", "hsl("+[h,s,l]+")" ); //<7>
+                w.insertBefore(u, w.firstChild);                //<8>
+            }
+        }
+        var t = document.createElementNS(svgNS, "text");        //<9>
+        t.textContent = "s = "+s;
+        t.setAttribute("y", "35");
+        w.insertBefore(t, null);
+    }
+})();
+]]> </script>
+</svg>

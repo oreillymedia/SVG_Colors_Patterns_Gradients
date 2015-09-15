@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="2in" viewBox="0 0 200 100">
+    <title xml:lang="en">SMIL-Animated Gradient</title>
+    <style type="text/css">
+        .star {
+            fill: url(#shine);
+        }
+    </style>
+    <symbol id="star" viewBox="0 0 200 200">
+        <path d="M100,10 L150,140 20,50 180,50 50,140 Z" />
+    </symbol>
+    <linearGradient id="shine" spreadMethod="repeat"
+                    gradientTransform="rotate(20)" >
+        <animate attributeName="y2" values="1;1.5;1;0.75;1"
+                 dur="2s" repeatDur="indefinite" />
+        <animate attributeName="x1" values="0;0.5;0"
+                 dur="3s" repeatDur="indefinite" />
+        <stop offset="0" stop-color="gold" />
+        <stop offset="0.25" stop-color="lightYellow" />
+        <stop offset="0.5" stop-color="gold" />
+        <stop offset="0.75" stop-color="tomato" />
+        <stop offset="1" stop-color="gold" />
+    </linearGradient>
+    <rect height="100%" width="100%" fill="#222"/>
+    <use xlink:href="#star" width="50" height="50" class="star"
+         transform="translate(10,20) rotate(-10)"/>
+    <use xlink:href="#star" width="40" height="40" class="star"
+         transform="translate(140,10) rotate(20)"/>
+    <use xlink:href="#star" width="35" height="35" class="star"
+         transform="translate(80,60) rotate(-5)"/>
+</svg>

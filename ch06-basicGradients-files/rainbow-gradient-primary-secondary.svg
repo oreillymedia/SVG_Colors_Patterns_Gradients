@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="2in"> 
+    <title xml:lang="en">Dark and Light Rainbow Gradients</title>
+    <linearGradient id="primary">                          <!--1-->
+        <stop stop-color="#F00" offset="0"/>
+        <stop stop-color="#00F" offset="0.3333"/>
+        <stop stop-color="#0F0" offset="0.6667"/>
+        <stop stop-color="#F00" offset="1"/>               <!--2-->
+    </linearGradient>
+    <linearGradient id="secondary">
+        <stop stop-color="#F0F" offset="0"/>
+        <stop stop-color="#0FF" offset="0.3333"/>
+        <stop stop-color="#FF0" offset="0.6667"/>
+        <stop stop-color="#F0F" offset="1"/>
+    </linearGradient>
+    <rect width="85.714%" height="1in" x="0" y="0" 
+          fill="url(#primary)" /> 
+    <rect width="85.714%" height="1in" x="14.286%" y="1in" 
+          fill="url(#secondary)" />                        <!--3-->
+</svg>     

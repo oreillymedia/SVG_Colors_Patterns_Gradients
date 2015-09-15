@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="100%"
+   height="100%"
+   viewBox="0 0 151 193"
+   id="eye" >
+    <defs>
+    <linearGradient
+       x1="2560"
+       y1="3040"
+       x2="1640"
+       y2="2330"
+       id="id0"
+       gradientUnits="userSpaceOnUse">
+        <stop
+         id="stop9"
+         style="stop-color:#cccccc;stop-opacity:1"
+         offset="0" />
+        <stop
+         id="stop11"
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    </defs>
+    <g
+     transform="matrix(0.036,0,0,0.036,0.021,0.016)"
+     id="Layer_x0020_1">
+        <path
+       d="M 822,4330 C 335,3950 21,3350 21,2690 21,2020 334,1430 822,1050 c 818,810 2068,1640 3358,1640 -1290,0 -2540,820 -3358,1640 z"
+       id="path14"
+       style="fill:url(#id0)" />
+        <path
+       d="M 310,3750 C 126,3440 21,3070 21,2690 c 0,-390 106,-750 289,-1060 87,330 134,690 134,1060 0,370 -47,720 -134,1060 z"
+       id="path16"
+       style="fill:#666666" />
+        <g style="fill:none;stroke:#000000;stroke-width:42.33;stroke-linecap:round;stroke-linejoin:round">
+            <path
+           d="M 4180,2690 C 2310,2690 496,934 21,21" />
+            <path
+           d="M 4180,2690 C 2310,2690 496,4440 21,5350" />
+            <path
+           d="M 822,4330 C 335,3950 21,3350 21,2690 21,2020 334,1430 822,1050 c 818,810 2068,1640 3358,1640 -1290,0 -2540,820 -3358,1640 z" />
+        </g>
+    </g>
+</svg>

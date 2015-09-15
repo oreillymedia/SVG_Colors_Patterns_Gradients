@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Cross-file paint server references</title>
+    <linearGradient id="red-blue-5" xlink:href="red-blue.svg#red-blue" />
+    <text font-size="1in" y="0.9in"
+           font-family="serif">Gradients…</text>
+    <rect width="100%" height="100%" fill="url(#red-blue-5)" /> 
+</svg>     

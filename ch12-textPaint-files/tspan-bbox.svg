@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="10cm" height="5cm" 
+     xml:lang="en">
+    <title>Chalkboard Text</title>
+    <style>
+        text {
+            font-family: cursive;
+            font-weight: bold;
+            font-size: 9mm;
+            font-size-adjust: 0.54;              <!--1-->
+        }
+        .chalk {
+            fill: url(#chalk-texture);
+        }
+        .chalk-marks {
+            fill: white;
+            fill-opacity: 0.8;
+            stroke: silver;
+            stroke-width: 0.2px;
+        }
+        .highlight {
+            fill: url(#highlight-gradient);
+        }
+        .blackboard {
+            fill: black;
+        }
+    </style>
+    <pattern id="chalk1" class="chalk-marks"
+             patternUnits="userSpaceOnUse"
+             width="9" height="6">                         <!--2-->
+        <circle r="1" cx="0" cy="3" />
+        <circle r="1" cx="1" cy="5" />
+        <circle r="1" cx="2" cy="1" />
+        <circle r="1" cx="3" cy="2" />
+        <circle r="1" cx="4" cy="5" />
+        <circle r="1" cx="5" cy="4" />
+        <circle r="1" cx="6" cy="0" />
+        <circle r="1" cx="7" cy="6" />
+        <circle r="1" cx="8" cy="3" />
+    </pattern>
+    <pattern id="chalk2" xlink:href="#chalk1" 
+             x="2" width="5" height="5"/>                  <!--3-->
+    <pattern id="chalk3" xlink:href="#chalk1" 
+             y="4" width="7" height="7"/>
+    <pattern id="chalk-texture" patternUnits="userSpaceOnUse"
+             width="315" height="210">                     <!--4-->
+        <rect fill="url(#chalk1)" width="315" height="210"/>
+        <rect fill="url(#chalk2)" width="315" height="210"/>
+        <rect fill="url(#chalk3)" width="315" height="210"/>
+    </pattern>
+    
+    <linearGradient id="highlight-gradient" x2="0" y2="1">
+        <stop stop-color="gold" offset="0.3" />            <!--5-->
+        <stop stop-color="deeppink" offset="0.7" />
+    </linearGradient>
+    
+    <rect class="blackboard" width="100%" height="100%" />
+    <text y="5mm" class="chalk" textLength="29cm">         <!--6-->
+        <tspan x="3mm" dy="1em"><tspan 
+               class="highlight">Textured</tspan>          <!--7-->
+            Text Effects</tspan>
+        <tspan x="3mm" dy="1.6em">Textured 
+            <tspan class="highlight">Text</tspan> Effects</tspan>
+        <tspan x="3mm" dy="1.6em">Textured 
+            Text <tspan class="highlight">Effects</tspan></tspan>
+    </text>
+</svg>

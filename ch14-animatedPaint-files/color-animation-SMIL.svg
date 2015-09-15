@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="2in" viewBox="0 0 200 100">
+    <title xml:lang="en">Simple SMIL Animation</title>
+    <symbol id="star" viewBox="0 0 200 200">
+        <path d="M100,10 L150,140 20,50 180,50 50,140 Z" />
+    </symbol>
+    <rect height="100%" width="100%" fill="#222"/>
+    <g fill="gold">
+        <use xlink:href="#star" width="50" height="50"
+             transform="translate(10,20) rotate(-10)">
+            <animate attributeName="fill" 
+                     values="gold;lightYellow;gold;tomato;gold"
+                     dur="3s" repeatDur="indefinite" />
+        </use>
+        <use xlink:href="#star" width="40" height="40"
+             transform="translate(140,10) rotate(20)">
+            <animate attributeName="fill" begin="-1s"
+                     values="gold;lightYellow;gold;tomato;gold"
+                     dur="3s" repeatDur="indefinite" />
+        </use>
+        <use xlink:href="#star" width="35" height="35"
+             transform="translate(80,60) rotate(-5)">
+            <animate attributeName="fill" begin="-2s"
+                     values="gold;lightYellow;gold;tomato;gold"
+                     dur="3s" repeatDur="indefinite" />
+        </use>
+    </g>
+</svg>

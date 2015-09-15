@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Two-Stop Gradient</title>
+    <linearGradient id="red-blue">
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="1"/>
+    </linearGradient>
+    <rect width="100%" height="100%" fill="url(#red-blue)" /> 
+</svg>     

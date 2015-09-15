@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="400px" height="300px" viewBox="0 0 400 300"> 
+  <title xml:lang="en">Circles with the Same Gradient, 
+                       Different Vectors</title>
+  <style type="text/css">
+      line {
+          stroke: darkMagenta;
+          stroke-width: 2;
+          marker-start: url(#start);
+          marker-end: url(#end);
+      }
+      marker {
+          fill: darkMagenta;
+      }
+      svg {
+          overflow: visible;
+      }
+  </style>
+  <defs>
+    <linearGradient id="blue-green" >
+        <stop stop-color="blue" offset="0"/>
+        <stop stop-color="darkSeaGreen" offset="1"/>
+    </linearGradient>
+    <marker id="start" viewBox="-2 -2 4 4">
+      <circle r="1.5"/>
+    </marker>
+    <marker id="end" viewBox="-4 -2 4 4" orient="auto">
+      <polygon points="-4,-2 0,0 -4,2"/>
+    </marker>
+  </defs>
+  
+  <g transform="translate(2,2)">
+    <svg width="1in" height="1in">
+      <linearGradient id="blue-green-1" xlink:href="#blue-green"
+                      x2="100%" y2="0"/>                   
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-1)"/> 
+      <line x1="0" y1="0" x2="100%" y2="0"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="0" y="100">
+      <linearGradient id="blue-green-2" xlink:href="#blue-green"
+                      x2="100%" y2="100%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-2)"/> 
+      <line x1="0" y1="0" x2="100%" y2="100%"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="0" y="200">
+      <linearGradient id="blue-green-3" xlink:href="#blue-green"
+                      x2="0" y2="100%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-3)"/> 
+      <line x1="0" y1="0" x2="0" y2="100%"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="100" y="0">
+      <linearGradient id="blue-green-4" xlink:href="#blue-green"
+                      y1="100%" x2="0"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-4)"/> 
+      <line x1="0" y1="100%" x2="0" y2="0"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="100" y="100">
+      <linearGradient id="blue-green-5" xlink:href="#blue-green"
+                      y1="100%" x2="100%" y2="0%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-5)"/> 
+      <line x1="0" y1="100%" x2="100%" y2="0%"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="100" y="200">
+      <linearGradient id="blue-green-6" xlink:href="#blue-green"
+                      y1="100%" x2="100%" y2="100%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-6)"/> 
+      <line x1="0" y1="100%" x2="100%" y2="100%"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="200" y="0">
+      <linearGradient id="blue-green-7" xlink:href="#blue-green"
+                      x1="100%" y1="0" x2="0" y2="0"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-7)"/> 
+      <line x1="100%" y1="0" x2="0" y2="0"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="200" y="100">
+      <linearGradient id="blue-green-8" xlink:href="#blue-green"
+                      x1="100%" y1="0" x2="0" y2="100%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-8)"/> 
+      <line x1="100%" y1="0" x2="0" y2="100%"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="200" y="200">
+      <linearGradient id="blue-green-9" xlink:href="#blue-green"
+                      x1="100%" y1="0" x2="100%" y2="100%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-9)"/> 
+      <line x1="100%" y1="0" x2="100%" y2="100%"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="300" y="0">
+      <linearGradient id="blue-green-10" xlink:href="#blue-green"
+                      x1="100%" y1="100%" x2="100%" y2="0"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-10)"/> 
+      <line x1="100%" y1="100%" x2="100%" y2="0"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="300" y="100">
+      <linearGradient id="blue-green-11" xlink:href="#blue-green"
+                      x1="100%" y1="100%" x2="0" y2="0"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-11)"/> 
+      <line x1="100%" y1="100%" x2="0" y2="0"/>
+    </svg>
+    
+    <svg width="1in" height="1in" x="300" y="200">
+      <linearGradient id="blue-green-12" xlink:href="#blue-green"
+                      x1="100%" y1="100%" x2="0" y2="100%"/>
+      <circle cx="50%" cy="50%" r="50%" fill="url(#blue-green-12)"/>
+      <line x1="100%" y1="100%" x2="0" y2="100%"/>
+    </svg>
+  </g>
+</svg>     

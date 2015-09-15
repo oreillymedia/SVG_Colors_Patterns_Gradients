@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400px" height="300px" viewBox="0 0 400 300"
+     xml:lang="en">
+    <title>Text Bounding Box</title>
+    <style type="text/css">
+        text {
+            font-size: 50px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+    </style>
+    <pattern id="stripes" width="100%" height="20%"
+             patternContentUnits="objectBoundingBox"> <!--1-->
+        <rect width="1" height="0.1" fill="indigo" />
+        <rect width="1" height="0.1" y="0.1" 
+              fill="royalBlue" />                     <!--2-->
+     </pattern>
+    <defs>
+        <path id="p" d="M250,150 L350,200 250,270" />
+    </defs>
+    
+    <g fill="url(#stripes)">                               <!--3-->
+        <text x="50%" y="1em" dx="-10"
+              text-anchor="end">Mixing</text>
+        <text x="50%" y="1em" dx="10"
+              text-anchor="start">BLOCK</text>             <!--4-->
+        <text x="10%" y="3em"
+              >Three <tspan x="10%" dy="1.2em"
+              >line </tspan><tspan x="10%" dy="1.2em"
+              >text</tspan></text>                         <!--5-->
+        <text><textPath xlink:href="#p"
+              >TextPath</textPath></text>                  <!--6-->
+    </g>
+</svg>

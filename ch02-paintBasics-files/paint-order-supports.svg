@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 80" width="4in" height="0.8in"
+     xml:lang="en">
+    <title>Using @supports to adjust paint-order effects</title>
+    <style type="text/css">
+        .outlined {
+          text-anchor: middle;
+          font-size: 80px; 
+          font-family: sans-serif;
+          fill: mediumBlue; 
+          stroke: gold;
+        
+          /* fallback */
+          stroke-width: 3;
+        }
+        
+        @supports (paint-order: stroke) {
+            .outlined {
+              stroke-width: 7;
+              paint-order: stroke;
+            }
+        }
+    </style>
+    <rect fill="navy" height="100%" width="100%" />
+    <text x="50%" y="70" class="outlined"
+          >Outlined</text>
+</svg>

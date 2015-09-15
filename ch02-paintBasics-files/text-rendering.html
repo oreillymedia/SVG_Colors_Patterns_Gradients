@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>text-rendering Options in SVG and HTML</title>
+  
+  <style type='text/css'>
+@font-face {
+    font-family: Times;
+    src: url(times.ttf);
+}
+
+body {
+    font: 8px Times, sans-serif;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+    text-align: center;
+    line-height: 1;
+    width: 4.3in;
+}
+p {
+    margin: 0; 
+    padding: 0;
+}
+p:first-of-type, text:first-of-type {
+    text-rendering: optimizeSpeed;
+}
+p:nth-of-type(2), text:nth-of-type(2) {
+    text-rendering: optimizeLegibility;
+}
+p:nth-of-type(3), text:nth-of-type(3) {
+    text-rendering: geometricPrecision;
+}
+
+div {
+    margin: 0;
+    margin-bottom: 1em;
+}
+div:nth-of-type(2){
+    font-size: 12px;
+}
+div:nth-of-type(3){
+    font-size: 16px;
+}
+div:nth-of-type(4){
+    font-size: 20px;
+    margin-bottom: 0;
+}
+      
+      svg, main {
+          display: inline-block;
+          width: calc(50% - 2em);
+          height: 2.2in;
+          box-sizing: padding-box;
+          margin: 0.5em;
+          border: solid thin lightBlue; 
+          vertical-align: top;
+      }
+      main {padding: 2px;}
+  </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         width="2.1in" height="2.2in">
+        <title xml:lang="en">text-rendering Effects</title>
+        <style>
+            text {
+                text-anchor: middle;
+            }
+        </style>
+        <g font-size="8px">
+            <g id="sample">
+                <text x="50%" y="1em"> Official final offer</text>
+                <text x="50%" y="2em"> Official final offer</text>
+                <text x="50%" y="3em"> Official final offer </text>
+            </g>
+        </g>
+        <use xlink:href="#sample" font-size="12px" y="32px"/>
+        <use xlink:href="#sample" font-size="16px" y="80px"/>
+        <use xlink:href="#sample" font-size="20px" y="144px"/>
+    </svg>
+    <main>
+        <div>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+        </div>
+        <div>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+        </div>
+        <div>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+        </div>
+        <div>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+            <p>Official final offer</p>
+        </div>
+    </main>
+</body>
+</html>

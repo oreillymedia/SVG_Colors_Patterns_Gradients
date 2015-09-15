@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="4in" viewBox="0 0 400 400">
+    <title xml:lang="en">Pinstripe Patterns</title>
+    <defs fill="#444" stroke="lightSkyBlue">                    <!--1-->
+        <pattern id="pinstripe" patternUnits="userSpaceOnUse"
+                 width="30" height="30">                        <!--2-->
+            <rect id="r" width="30" height="30" 
+                  stroke="none" />
+            <line id="l" x1="15" y="0" x2="15" y2="30" 
+                  fill="none" />
+        </pattern>
+        <pattern id="diagonals" xlink:href="#pinstripe"
+                 patternTransform="rotate(45)" />               <!--3-->
+        <pattern id="grid" xlink:href="#pinstripe">
+            <use xlink:href="#r" />                             <!--4-->
+            <use xlink:href="#l" />
+            <use xlink:href="#l" transform="rotate(90, 15, 15)"/>
+        </pattern>
+        <pattern id="diagonal-grid" xlink:href="#grid"
+                 patternTransform="rotate(45)" />               <!--5-->
+    </defs>
+    
+    <rect width="200" height="200"
+          fill="url(#pinstripe)" />
+    <rect width="200" height="200" x="200"
+          fill="url(#diagonals)" />
+    <rect width="200" height="200" y="200"
+          fill="url(#diagonal-grid)" />
+    <rect width="200" height="200" x="200" y="200"
+          fill="url(#grid)" />
+</svg>

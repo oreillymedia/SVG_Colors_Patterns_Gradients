@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Repeating Gradient</title>
+    <linearGradient id="wallpaper" spreadMethod="repeat"
+                    gradientUnits="userSpaceOnUse" 
+                    x1="5px" x2="45px">                    <!--1-->
+        <stop stop-color="indigo" offset="50%"/>           <!--2-->
+        <stop stop-color="deepSkyBlue" offset="50%"/>
+        <stop stop-color="lightSkyBlue" offset="90%"/>     <!--3-->
+    </linearGradient>
+    <rect width="100%" height="100%" fill="url(#wallpaper)" /> 
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     xml:lang="en"
+     width="100mm" height="50mm" version="1.2">                         <!--1-->
+    <title>ACME Logo</title>
+    <defs>
+        <solidColor id="AcmeRed"       solid-color="#FF4022" />
+        <solidColor id="AcmeMaroon"    solid-color="#80201C" />
+        <solidColor id="AcmeGold"      solid-color="#FFFC32" />
+        <solidColor id="AcmeWhiteGold" solid-color="#FFFCE0" />    
+        <symbol id="AcmeLogo" viewBox="0,-40 160,80" >   <!--3-->
+            <path d="M0,0 L40,-40 L40,-20 L160,-20 
+                     L160,20 L40,20 L40,40z" 
+                  fill="url(#AcmeRed)"/>                 <!--4-->
+            <path d="M16,-10 L35,-29 L35,-15 L155,-15 L155,-10 z" 
+                  fill="url(#AcmeGold)"/>
+            <path d="M13,-7 L16,-10 L155,-10 L155,-7 z" 
+                  fill="url(#AcmeMaroon)"/>
+            <text x="40" y="15" 
+                  style="font-family:Arial; font-weight:bold; 
+                         font-size:20pt;" 
+                  fill="url(#AcmeWhiteGold)">ACME</text>
+        </symbol>
+    </defs>
+    <use xlink:href="#AcmeLogo" />                       <!--5-->
+</svg>     

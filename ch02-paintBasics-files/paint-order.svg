@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 80" width="4in" height="0.8in"
+     xml:lang="en">
+    <title>Outlined text, using paint-order</title>
+    <rect fill="navy" height="100%" width="100%" />
+    <text x="50%" y="70" 
+          text-anchor="middle"
+          font-size="80" 
+          font-family="sans-serif"
+          fill="mediumBlue" 
+          stroke="gold"
+          stroke-width="7"
+          paint-order="stroke"
+          >Outlined</text>
+</svg>

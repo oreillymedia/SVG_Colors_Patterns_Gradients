@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 400 200" width="4in" height="2in">
+    <title xml:lang="en">Fill-rule comparison</title>
+    <rect fill="lightSkyBlue" height="100%" width="100%" />       <!--1-->
+    
+    <polygon id="p"
+             fill="blueViolet" stroke="navy"
+             points="20,180 20,20 180,20 180,180 60,60 140,60" /> <!--2-->
+    <use xlink:href="#p" x="50%" fill-rule="evenodd" />           <!--3-->
+</svg>

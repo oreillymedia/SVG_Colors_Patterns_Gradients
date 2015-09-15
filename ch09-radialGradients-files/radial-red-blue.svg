@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Radial Gradients</title>
+    <radialGradient id="red-blue">
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="1"/>
+    </radialGradient>
+    <radialGradient id="red-blue-2">
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="0.3"/>
+        <stop stop-color="red" offset="1"/>
+    </radialGradient>
+    <radialGradient id="red-blue-3">
+        <stop stop-color="red" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.7"/>
+    </radialGradient>
+    <radialGradient id="red-blue-4">
+        <stop stop-color="red" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.7"/>
+        <stop stop-color="red" offset="0.7"/>
+    </radialGradient>
+    <circle r="0.5in" cy="50%" cx="12.5%" fill="url(#red-blue)" />
+    <circle r="0.5in" cy="50%" cx="37.5%" fill="url(#red-blue-2)" /> 
+    <circle r="0.5in" cy="50%" cx="62.5%" fill="url(#red-blue-3)" />
+    <circle r="0.5in" cy="50%" cx="87.5%" fill="url(#red-blue-4)" />
+</svg>     

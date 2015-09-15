@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Rainbow Gradient, using HSL notation</title>
+    <linearGradient id="rainbow">
+        <stop stop-color="hsl(300, 100%, 50%)" offset="0%"/>
+        <stop stop-color="hsl(240, 100%, 50%)" offset="16.67%"/>
+        <stop stop-color="hsl(180, 100%, 50%)" offset="33.33%"/>
+        <stop stop-color="hsl(120, 100%, 50%)" offset="50%"/>
+        <stop stop-color="hsl( 60, 100%, 50%)" offset="66.67%"/>
+        <stop stop-color="hsl(  0, 100%, 50%)" offset="83.33%"/>
+        <stop stop-color="hsl(-60, 100%, 50%)" offset="100%"/>
+    </linearGradient>
+    <rect width="100%" height="100%" fill="url(#rainbow)" /> 
+</svg>     

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Transformed Reflecting Gradient</title>
+    <linearGradient id="waves" spreadMethod="reflect"
+                    gradientTransform="rotate(45) scale(0.141)">
+        <stop stop-color="darkGreen" offset="0"/>
+        <stop stop-color="mediumSeaGreen" offset="50%"/>
+        <stop stop-color="skyBlue" offset="100%"/>
+    </linearGradient>
+    <rect width="100%" height="100%" fill="url(#waves)" /> 
+</svg>     

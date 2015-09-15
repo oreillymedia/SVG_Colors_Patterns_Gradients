@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="100%" height="100%">                          <!--1-->
+    <title xml:lang="en">Always-Circular Gradient</title>    
+    <defs>
+        <radialGradient id="radial">                       <!--2-->
+            <stop stop-color="lightYellow" offset="0"/>    
+            <stop stop-color="yellow" offset="0.2"/>     
+            <stop stop-color="gold" offset="0.8"/>         
+            <stop stop-color="orangeRed" offset="1"/>            
+        </radialGradient>
+        <pattern id="circular-gradient" width="1" height="1" 
+                 viewBox="0 0 1 1">                        <!--3-->
+            <rect width="5" height="5" x="-2" y="-2" 
+                  fill="orangeRed"/>                       <!--4-->
+            <rect width="1" height="1" 
+                  fill="url(#radial)"/>                    <!--5-->
+        </pattern>
+    </defs>
+    <rect height="100%" width="100%" fill="url(#circular-gradient)"/>
+</svg>

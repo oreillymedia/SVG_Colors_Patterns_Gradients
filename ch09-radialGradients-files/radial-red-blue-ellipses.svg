@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="1.5in"> 
+    <title xml:lang="en">Elliptical Radial Gradients</title>
+    <radialGradient id="red-blue">
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="1"/>
+    </radialGradient>
+    <radialGradient id="red-blue-2">
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="0.3"/>
+        <stop stop-color="red" offset="1"/>
+    </radialGradient>
+    <radialGradient id="red-blue-3">
+        <stop stop-color="red" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.7"/>
+    </radialGradient>
+    <radialGradient id="red-blue-4">
+        <stop stop-color="red" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.7"/>
+        <stop stop-color="red" offset="0.7"/>
+    </radialGradient>
+    <ellipse rx="0.5in" ry="0.75in" cy="50%" cx="12.5%" fill="url(#red-blue)" />
+    <ellipse rx="0.5in" ry="0.75in" cy="50%" cx="37.5%" fill="url(#red-blue-2)" /> 
+    <ellipse rx="0.5in" ry="0.75in" cy="50%" cx="62.5%" fill="url(#red-blue-3)" />
+    <ellipse rx="0.5in" ry="0.75in" cy="50%" cx="87.5%" fill="url(#red-blue-4)" />
+</svg>     

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en"
+     width="4in" height="3in" viewBox="0 0 100 75">           <!--1-->
+    <title xml:lang="en">Userspace Gradient on 
+                         Transformed Straight Lines</title>
+    <linearGradient id="red-blue" gradientUnits="userSpaceOnUse"><!--2-->
+        <stop stop-color="red" offset="0"/>
+        <stop stop-color="lightSkyBlue" offset="1"/>
+    </linearGradient>
+    <g fill="none" stroke-width="12" 
+       stroke="url(#red-blue) purple" >                       <!--3-->
+        <line x2="100%" 
+              transform="translate(10,7.5) scale(0.8,1)" />   <!--4-->
+        <line x2="100%" 
+              transform="translate(90,18.75) 
+                         rotate(90) scale(0.375,1)" />        <!--5-->
+        <line x2="100%" 
+              transform="translate(90,67.5) scale(-0.8,1)" /> <!--6-->
+        <line x2="100%" 
+              transform="translate(10,56.25) 
+                         rotate(-90) scale(0.375,1)" />
+        <line x2="100%" 
+              transform="translate(30,18.75) 
+                         rotate(45) scale(0.5315,1)" />
+        <line x2="100%" 
+              transform="translate(70,18.75) 
+                         rotate(135) scale(0.5315,1)" />
+    </g>
+</svg>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Re-using Symbols with Gradients</title>
+    <style type='text/css'>
+        html {
+            background-color: #ddd;
+            color: mediumSlateBlue;
+        }
+        html, body {
+            padding: 0; margin:0;
+        }
+        .skip-nav {
+            display: block;
+            position: absolute;
+            background: #eee;
+        }
+        .skip-nav:not(:focus):not(:hover){
+            opacity:0;
+        }
+        header {
+            margin: 0;
+            padding: 1em;
+            background-color: #222;
+            color: lightSkyBlue; 
+            box-shadow: 0 0.1em 1em black;
+        }
+        header h1 {
+            font-variant: small-caps;
+            font-style: italic;
+            margin-top: 0;
+        }
+        main {
+            padding: 0 1em 1em;
+        }
+        nav > ul {
+            padding: 0;
+            margin: 0;
+        }
+        nav > ul > li {
+            display: inline-block;
+            text-align: center;
+            font-size: larger;
+            border: dotted;
+            border-radius: 0.5em;
+            padding: 0.5em;
+            min-width: 4em;
+        }
+        nav li+li {
+            margin-left: 1em;
+        }
+        nav a:link {
+            color: inherit;
+        }                         /* skip previous styles */
+        svg.defs-only {
+            display: block;
+            position: absolute;
+            height: 0; width: 0;
+            overflow: hidden;
+        }
+        svg.nav-icon  {
+            display: block;
+            width: 3em;
+            height: 3em;
+            margin: auto;
+            fill: url(#silver-shine);            <!--1-->
+        }
+        a:not(:link) > .nav-icon {
+            fill: url(#gold-shine);              <!--2-->
+        }
+        nav a:link:focus, nav a:link:hover {
+            stroke: url(#gold-shine);
+            stroke-width: 10px;                  <!--3-->
+        }
+        input, button {
+            display: inline-block;
+            height: 2em;
+            padding: 0 0.5em;
+        }
+        input[type="search"] {
+            width: calc(100% - 5em);
+        }
+        button {
+            display: inline-block;
+            width: 3em;
+            vertical-align: top;
+            color: inherit;
+        }
+        button svg {
+            height: 100%;
+            width: 100%;
+            fill: currentColor;                  <!--4-->
+        }
+    </style>
+</head>
+<body>
+    <svg class="defs-only" aria-hidden="true" focusable="false" 
+         width="0" height="0">                                  <!--5-->
+        <linearGradient id="silver-shine" spreadMethod="repeat"
+                        gradientTransform="rotate(40) scale(0.8)" >
+            <stop offset="0" stop-color="gray" />
+            <stop offset="0.35" stop-color="silver" />
+            <stop offset="1" stop-color="gray" />
+        </linearGradient>
+        <linearGradient id="gold-shine" 
+                        xlink:href="#silver-shine" >            <!--6-->
+            <stop offset="0" stop-color="gold" />
+            <stop offset="0.35" stop-color="lightYellow" />
+            <stop offset="1" stop-color="gold" />
+        </linearGradient>
+        <symbol id="home" viewBox="0 0 200 200">                <!--7-->
+            <path d="M30,180 V80 H10 L100,10 190,80 H170 V180
+                     H90 V100 H60 V180 H30 Z
+                     M110,100 H150 V140 H110 Z" 
+                  fill-rule="evenodd" />
+        </symbol>        
+        <symbol id="star" viewBox="10 10 170 150">
+            <path d="M100,10 L150,140 20,50 180,50 50,140 Z" />
+        </symbol>        
+        <symbol id="magnify" viewBox="0 0 200 200">
+            <path d="M10,170 L70,110 A60,60 0 1,1 90,130 L30,190Z
+                     M85,104 A44,44 0 1,1 96,116 Z" 
+                  fill-rule="evenodd" />
+            <path d="M85,104 A44,44 0 1,1 96,116 Z" fill-opacity="0.7" />
+        </symbol>        
+    </svg>
+    <a class="skip-nav" href="#main">Skip to Main Content</a>
+    <header>
+        <h1>Gradients Gone Wild</h1>
+        <nav>
+            <ul>
+                <li><a href="/">HOME
+                        <svg class="nav-icon" role="presentation">
+                            <use xlink:href="#home" />          <!--8-->
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="/favorites">Favorites
+                        <svg class="nav-icon" role="presentation">
+                            <use xlink:href="#star" />
+                        </svg>
+                    </a>
+                </li>
+                <li><a title="(You are here)">Search
+                        <svg class="nav-icon" role="presentation">
+                            <use xlink:href="#magnify" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <h1>Search the Site</h1>
+        <form>
+            <input type="search" name="q" 
+                   aria-label="Enter Search Terms"/>
+            <button type="submit" aria-label="Search">
+                <svg>
+                    <use xlink:href="#magnify" />               <!--9-->
+                    GO
+                </svg>
+            </button>
+        </form>
+    </main>
+</body>
+</html>

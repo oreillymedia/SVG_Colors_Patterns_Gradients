@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400" height="400" viewBox="0 0 400 400">
+    <title xml:lang="en">Earth in Space</title>
+    <style type="text/css">
+        .earth {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 148pt;
+            text-transform: uppercase;
+            
+            text-anchor: middle;
+            
+            fill: url('#picBackground');
+            text-shadow: white 0 0 8px ;
+        }
+        .background {
+            fill: url(#background);
+        }
+    </style>
+    <defs>         
+        <pattern id="picBackground" width="1" height="1" 
+                 viewBox="0 0 1 1" preserveAspectRatio="xMidYMid slice">
+            <image xlink:href="globe_west_1024.jpg" 
+                   x="-0.07" y="-0.07" width="1.14" height="1.14" 
+                   preserveAspectRatio="xMidYMid slice"/>            
+        </pattern>
+        <linearGradient id="background" gradientTransform="rotate(90)">
+            <stop stop-color="black" offset="0"/>
+            <stop stop-color="black" offset="0.5"/>
+            <stop stop-color="navy" offset="0.80"/>
+            <stop stop-color="blue" offset="0.9"/>
+            <stop stop-color="lightBlue" offset="0.95"/>
+            <stop stop-color="green" offset="0.95"/>
+            <stop stop-color="brown" offset="1.2"/>            
+        </linearGradient>
+    </defs>
+    
+    <rect width="100%" height="100%" class="background"/>
+    <circle class="earth" cx="200" cy="180" r="150" />
+    
+    <metadata>
+        http://visibleearth.nasa.gov/view.php?id=57723
+        Image Credit: NASA Goddard Space Flight Center Image by Reto Stöckli (land surface, shallow water, clouds). Enhancements by Robert Simmon (ocean color, compositing, 3D globes, animation). Data and technical support: MODIS Land Group; MODIS Science Data Support Team; MODIS Atmosphere Group; MODIS Ocean Group Additional data: USGS EROS Data Center (topography); USGS Terrestrial Remote Sensing Flagstaff Field Center (Antarctica); Defense Meteorological Satellite Program (city lights).
+    </metadata>
+</svg>

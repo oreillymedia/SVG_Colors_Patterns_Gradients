@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400px" height="650px" 
+     xml:lang="en"
+     viewBox="0 0 7 21" preserveAspectRatio="none" >   <!--1-->
+    <title>SVG Color Keywords</title>
+    
+    <script><![CDATA[
+(function(){
+    var svgNS = "http://www.w3.org/2000/svg";
+    var xlinkNS = "http://www.w3.org/1999/xlink";
+    var svg = document.documentElement;
+
+    var dataFileURL = "color-names.csv"                    //<1>
+    var request = new XMLHttpRequest();
+    request.addEventListener("load", draw);
+    request.overrideMimeType("text/csv");
+    request.open("GET", dataFileURL);
+    request.send();
+
+    function draw() {                                      //<2>
+        var w = 7; //swatches per row
+
+        var colors = request.responseText.split("\n");     //<3>    
+
+        for (var i=0, n=colors.length; i<n; i++){
+            var c = colors[i].trim();                      //<4>
+            
+            var swatch = document.createElementNS(svgNS, "rect");
+            swatch.setAttribute("width", 1);
+            swatch.setAttribute("height", 1);
+            swatch.setAttribute("x", i % w );
+            swatch.setAttribute("y", Math.floor(i / w) );  //<5>
+
+            swatch.style.setProperty("fill", c);           //<6>
+
+            var tip = document.createElementNS(svgNS, "title");
+            tip.textContent = c;
+            swatch.insertBefore(tip, null);                //<7>
+
+            svg.insertBefore(swatch, null);                //<8>
+        }
+    }
+})();
+]]> </script>
+</svg>

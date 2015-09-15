@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400px" height="640px" viewBox="0 0 400 640" 
+     xml:lang="en">
+    <title>SVG Color Keywords</title>
+    <style type="text/css">
+        svg { overflow: visible; }
+        text {
+            text-anchor: middle;
+            font-size: 8px;
+            font-family: sans-serif;
+        }
+    </style>
+    <rect fill="#aaa" width="100%" height="50%"/>
+    <rect fill="#222" y="50%" width="100%" height="50%"/>
+    
+    <svg id="darks" x="5%" y="2.5%" width="90%" height="45%" 
+         viewBox="-100,-120 200,180">
+        <polygon fill="none" stroke="white"
+                 points="-100,57.7 100,57.7 0,-115.4"/>
+    </svg>      
+    <svg id="lights" x="5%" y="52.5%" width="90%" height="45%"  
+         viewBox="-100,-120 200,180">
+        <polygon fill="none" stroke="black"
+                 points="-100,57.7 100,57.7 0,-115.4"/>
+    </svg>
+    
+    <script><![CDATA[
+(function(){
+    var svgNS = "http://www.w3.org/2000/svg";
+    var xlinkNS = "http://www.w3.org/1999/xlink";
+
+    var dataFileURL = "color-keywords.csv"
+
+    var request = new XMLHttpRequest();
+    request.addEventListener("load", draw);
+    request.open("GET", dataFileURL);
+    request.send();
+
+    function parseColor( CSVString ) {
+        var a = CSVString.split(",");
+        var c = {};
+        c.name = a[0].trim();
+        c.R = +a[1];
+        c.G = +a[2];
+        c.B = +a[3];
+        return c;
+    }
+
+    function draw() {
+        var colors = request.responseText
+                          .split("\n")
+                          .map( parseColor );
+        var vR = {x:0, y:-115.4},
+            vG = {x:100, y:57.7},
+            vB = {x:-100, y:57.7};
+        
+
+        for (var i=0, n=colors.length; i<n; i++){
+            var c = colors[i];
+            var min = Math.min(c.R, c.G, c.B);
+            var max = Math.max(c.R, c.G, c.B);
+            var sum = c.R + c.G + c.B -min;
+            var plot;
+
+            if ( (min+max)/2 <= 127) plot = "darks"
+            else plot = "lights";
+            
+            var dot = document.createElementNS(svgNS, "circle");
+            dot.setAttribute("r", 10);
+            dot.setAttribute("cx", (max==0)? 0 
+                     : vR.x*c.R/sum + vG.x*c.G/sum + vB.x*c.B/sum );
+            dot.setAttribute("cy", (max==0)? 0 
+                     : vR.y*c.R/sum + vG.y*c.G/sum + vB.y*c.B/sum );
+
+            var rgb = "rgb("+[c.R, c.G, c.B]+")"
+            dot.style.setProperty("fill", rgb);
+
+            var tip = document.createElementNS(svgNS, "title");
+            tip.textContent = c.name +": " + rgb;
+            dot.insertBefore(tip, null);
+
+            document.getElementById(plot).insertBefore(dot, null);
+        }
+    }
+})();
+]]> </script>
+</svg>

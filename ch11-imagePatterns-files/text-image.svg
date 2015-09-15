@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="400" height="250" viewBox="0 0 800 500">
+    <title xml:lang="en">Earth in Space</title>
+    <style type="text/css">
+        .earth {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 148pt;
+            
+            text-anchor: middle;            
+            fill: url('#photoFill');
+            stroke: #205334;
+            stroke-width: 3;
+            text-decoration: overline underline;
+            text-shadow: white 0 0 8px ;                   <!--1-->
+        }
+        .background {
+            fill: url(#background);
+        }
+    </style>
+    <defs>         
+        <pattern id="photoFill" width="1" height="1" 
+                 viewBox="0 0 1 1" 
+                 preserveAspectRatio="xMidYMid slice">     <!--2-->
+            <image x="-0.1" y="-0.1" width="1.2" height="1.2" 
+                   xlink:href="globe_west_1024.jpg" />     <!--3-->            
+        </pattern>
+        <linearGradient id="background" 
+                        gradientTransform="rotate(90)">    <!--4-->
+            <stop stop-color="black" offset="0"/>
+            <stop stop-color="black" offset="0.5"/>
+            <stop stop-color="navy" offset="0.80"/>
+            <stop stop-color="blue" offset="0.9"/>
+            <stop stop-color="lightBlue" offset="0.95"/>
+            <stop stop-color="green" offset="0.95"/>
+            <stop stop-color="brown" offset="1.2"/>            
+        </linearGradient>
+    </defs>
+    
+    <rect width="100%" height="100%" class="background"/>
+    <text class="earth" x="400" y="60%">EARTH</text>       <!--5-->
+    
+    <metadata>                                             <!--6-->
+Image Source: http://visibleearth.nasa.gov/view.php?id=57723
+    </metadata>
+</svg>

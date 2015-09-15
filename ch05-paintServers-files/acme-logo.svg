@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     xml:lang="en"
+     width="100mm" height="50mm">                        <!--1-->
+    <title>ACME Logo</title>
+    <defs>
+        <linearGradient id="AcmeRed">                    <!--2-->
+            <stop stop-color="#FF4022" />
+        </linearGradient>    
+        <linearGradient id="AcmeMaroon">
+            <stop stop-color="#80201C" />
+        </linearGradient>    
+        <linearGradient id="AcmeGold">
+            <stop stop-color="#FFFC32" />
+        </linearGradient>    
+        <linearGradient id="AcmeWhiteGold">
+            <stop stop-color="#FFFCE0" />
+        </linearGradient>    
+        <symbol id="AcmeLogo" viewBox="0,-40 160,80" >   <!--3-->
+            <path d="M0,0 L40,-40 L40,-20 L160,-20 
+                     L160,20 L40,20 L40,40z" 
+                  fill="url(#AcmeRed)"/>                 <!--4-->
+            <path d="M16,-10 L35,-29 L35,-15 L155,-15 L155,-10 z" 
+                  fill="url(#AcmeGold)"/>
+            <path d="M13,-7 L16,-10 L155,-10 L155,-7 z" 
+                  fill="url(#AcmeMaroon)"/>
+            <text x="40" y="15" 
+                  style="font-family:Arial; font-weight:bold; 
+                         font-size:20pt;" 
+                  fill="url(#AcmeWhiteGold)">ACME</text>
+        </symbol>
+    </defs>
+    <use xlink:href="#AcmeLogo" />                       <!--5-->
+</svg>     

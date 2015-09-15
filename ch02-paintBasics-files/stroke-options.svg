@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 400 400" width="4in" height="4in"
+     xml:lang="en">
+    <title>Stroke join and cap styles compared</title>
+    <style type="text/css">
+        .backdrop {                                        <!--1-->
+            fill: peachPuff;
+        }
+        .shapes {
+            fill: none;
+            stroke: indigo;
+            stroke-width: 8px;
+        }
+        .join-round { 
+            stroke-linejoin: round;
+        }
+        .join-bevel {
+            stroke-linejoin: bevel;
+        }
+        .join-miter {
+            stroke-linejoin: miter;
+            stroke-miterlimit: 10;
+        }
+        .cap-round {
+            stroke-linecap: round;
+        }
+        .cap-butt {
+            stroke-linecap: butt;
+        }
+        .cap-square {
+            stroke-linecap: square;
+        }
+        .wider {
+            stroke-width: 14px;
+        }    
+    </style>
+    <defs>
+        <polyline id="p2"
+            points="20,20 20,80 100,80 40,20 100,20" />    <!--2-->
+    </defs>
+    <rect class="backdrop" height="100%" width="100%" /> 
+    
+    <g class="shapes">
+        <g class="cap-round">
+            <title>Round line caps</title>
+            <g id="row">                                   <!--3-->
+                <use xlink:href="#p2" x="0"   class="join-round">
+                    <title>Round line joins</title>
+                </use>
+                <use xlink:href="#p2" x="35%" class="join-bevel">
+                    <title>Beveled line joins</title>
+                </use> 
+                <use xlink:href="#p2" x="70%" class="join-miter">
+                    <title>Mitered line joins</title>
+                </use> 
+            </g>
+        </g>
+        <g class="cap-butt">                               <!--4-->
+            <title>Butt (cropped) line caps</title>
+            <use xlink:href="#row" y="25%" /> 
+        </g>
+        <g class="cap-square">
+            <title>Square line caps</title>
+            <use xlink:href="#row" y="50%" /> 
+        </g>
+        <g class="cap-square wider">                       <!--5-->
+            <title>Square line caps with a wider stroke</title>
+            <use xlink:href="#row" y="75%" /> 
+        </g>
+    </g>
+</svg>

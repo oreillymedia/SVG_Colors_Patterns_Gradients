@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4.5in" height="2.25in"
+     xml:lang="en">
+    <title>text-rendering Effects</title>
+    <style>
+        svg {
+            border: solid thin lightBlue; 
+            margin: 1em;
+            font-family: Times New Roman, Times, serif;
+            font-variant-ligatures: common-ligatures discretionary-ligatures;
+            font-kerning: normal;
+            text-anchor: middle;
+        }
+    </style>
+    <g id="block">
+        <g font-size="8px">
+            <g id="sample">
+                <text x="25%" y="1em" text-rendering="optimizeSpeed">Optimized SVG Text</text>
+                <text x="25%" y="2em" text-rendering="optimizeLegibility">Optimized SVG Text</text>
+                <text x="25%" y="3em" text-rendering="geometricPrecision">Optimized SVG Text</text>
+            </g>
+        </g>
+        <use xlink:href="#sample" font-size="12px" y="32px"/>
+        <use xlink:href="#sample" font-size="16px" y="80px"/>
+        <use xlink:href="#sample" font-size="21px" y="144px"/>
+    </g>
+    <use xlink:href="#block" x="50%" font-family="Verdana, sans-serif" />
+</svg>
+     

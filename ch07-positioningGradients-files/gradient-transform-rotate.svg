@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="400" height="300" viewBox="-200,-150 400,300">  <!--1-->
+    <title xml:lang="en">Rotated Gradients</title>
+    <defs>
+        <linearGradient id="rainbow" >
+            <stop stop-color="darkViolet" offset="0"/>
+            <stop stop-color="blue" offset="0.143"/>       <!--2-->
+            <stop stop-color="cyan" offset="0.286"/>
+            <stop stop-color="limeGreen" offset="0.429"/>
+            <stop stop-color="yellow" offset="0.572"/>
+            <stop stop-color="orange" offset="0.715"/>
+            <stop stop-color="red" offset="0.857"/>            
+            <stop stop-color="maroon" offset="1"/>
+        </linearGradient>
+        <linearGradient id="rainbow45" xlink:href="#rainbow"    
+                        gradientTransform="rotate(45)"/>   <!--3-->
+        <linearGradient id="rainbow90" xlink:href="#rainbow" 
+                        gradientTransform="rotate(90)"/>
+        <linearGradient id="rainbow135" xlink:href="#rainbow" 
+                        gradientTransform="rotate(135)"/>
+        <linearGradient id="rainbow180" xlink:href="#rainbow" 
+                        gradientTransform="rotate(180)"/>
+        <linearGradient id="rainbow225" xlink:href="#rainbow" 
+                        gradientTransform="rotate(225)"/>
+        <linearGradient id="rainbow270" xlink:href="#rainbow" 
+                        gradientTransform="rotate(270)"/>
+        <linearGradient id="rainbow315" xlink:href="#rainbow" 
+                        gradientTransform="rotate(315)"/>
+    </defs>
+    
+    <ellipse rx="60" ry="40" cx="130" cy="0" 
+             fill="url(#rainbow)"/>                        <!--4-->
+    <ellipse rx="60" ry="40" cx="130" cy="100" 
+             fill="url(#rainbow45)"/>
+    <ellipse rx="60" ry="40" cx="0" cy="100" 
+             fill="url(#rainbow90)"/>
+    <ellipse rx="60" ry="40" cx="-130" cy="100" 
+             fill="url(#rainbow135)"/>
+    <ellipse rx="60" ry="40" cx="-130" cy="0" 
+             fill="url(#rainbow180)"/>
+    <ellipse rx="60" ry="40" cx="-130" cy="-100" 
+             fill="url(#rainbow225)"/>
+    <ellipse rx="60" ry="40" cx="0" cy="-100" 
+             fill="url(#rainbow270)"/>
+    <ellipse rx="60" ry="40" cx="130" cy="-100" 
+             fill="url(#rainbow315)"/>
+</svg> 

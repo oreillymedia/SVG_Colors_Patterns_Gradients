@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS and SVG Simulated Lighting Gradients</title>
+    <style type='text/css'>
+    html, body { 
+        height: 2in;
+        width: 4in;
+        margin: 0; padding: 0;
+        text-align: center;                             <!--1-->
+    }
+    svg, div.sphere {
+        height: 1.8in;
+        width: 1.8in;
+        display: block;
+        float: left;
+        margin: 0.1in;
+    }
+    div.sphere {
+        border-radius: 50%;
+        background: 
+            radial-gradient(ellipse 40% 40% at 32% 32%,
+                lightYellow 15%,
+                rgba(100%, 100%, 88%, 0.5) 40%, 
+                transparent),
+            radial-gradient(ellipse 55% 55% at 40% 40%,
+                rgba(100%, 100%, 88%, 0.4) 20%, 
+                transparent),
+            radial-gradient(ellipse 60% 60% at 45% 45%, 
+                rgb(100%,55%,45%), darkRed 90%);        <!--2-->
+    }
+    </style>
+</head>
+<body>
+    <svg>
+        <radialGradient id="faux-lighting" 
+                        cx="45%" cy="45%" r="60%"
+                        fx="30%" fy="30%" > 
+            <stop offset="0.1" stop-color="lightYellow" />
+            <stop offset="0.9" stop-color="darkRed" /> 
+        </radialGradient>
+        <circle cx="50%" cy="50%" r="50%" 
+                fill="url(#faux-lighting)"/>             <!--3-->
+    </svg>
+    <div class="sphere"></div>                           <!--4-->
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="100%" height="100%" viewBox="0 0 1000 650"
+    id="curtains" >                                   <!--1-->
+    <title xml:lang="en">Stage Curtains</title>
+    <style type="text/css">
+        .curtain-shadow {
+            fill: black;
+            fill-opacity: 0.5;                        <!--2-->
+        }
+        .side-curtain {
+            fill: url(#side-curtain-gradient);
+        }
+        .ceiling-curtain {
+            fill: url(#ceiling-curtain-gradient);
+        }
+    </style>
+    <defs>                                            <!--3-->
+        <path id="curtain" transform="scale(0.55)"
+              d="m 0.319,0 0.252,1000 c 0,0 -2.761,40 44.129,30 
+46.9,-10 38.6,-20 46.9,-10 8.3,0 27.4,10 47.4,0 19,-21 63,10 63,10 
+0,0 11,10 44,0 33,-10 58,0 58,0 0,0 19,40 52,20 33,-30 34,-30 
+34,-30 L 390,-0.53 z"/>
+        <path id="ceiling-curtain" transform="scale(1,0.5)"
+              d="m 0,0 1000,0 0,180 c 0,0 -26,17 -49,9 -22,-9 
+-48,-32 -57,-18 -8,15 -31,3 -54,-5 -23,-9 -20,45 -49,23 -28,-23 
+-11,11 -34,0 -23,-12 -23,-32 -46,-18 -22,15 -17,-8 -37,-8 -20,0 
+-25,23 -54,11 -29,-11 -43,-25 -49,-3 -5,23 -5,23 -28,0 -23,-22 
+-46,6 -46,6 0,0 -28,12 -43,-3 -14,-14 -54,-8 -54,6 0,14 -23,20 
+-31,3 -9,-17 8,26 -29,8 -37,-17 -11,-34 -40,-17 -29,17 -49,-3 
+-63,-5 -14,-3 -14,37 -28,25 -15,-11 -9,-14 -32,-17 -23,-3 -28,37 
+-46,23 C 114,186 120,157 106,169 91.4,180 85.7,214 74.3,203 
+62.9,191 60,171 48.6,177 37.1,183 25.7,203 25.7,203 L 2.86,177 
+C 0,171 0,0 0,0 z"/>
+        <linearGradient id="side-curtain-gradient">   <!--4-->
+            <stop stop-color="#800000" offset="0"/>
+            <stop stop-color="#c00000" offset="0.08"/>
+            <stop stop-color="#e00000" offset=".15"/>
+            <stop stop-color="#800000" offset="0.24"/>
+            <stop stop-color="#400000" offset="0.26"/>
+            <stop stop-color="#600000" offset="0.28"/>
+            <stop stop-color="#800000" offset="0.30"/>
+            <stop stop-color="#c00000" offset="0.33"/>
+            <stop stop-color="#800000" offset="0.41"/>
+            <stop stop-color="#c00000" offset="0.56"/>
+            <stop stop-color="#800000" offset="0.75"/>
+            <stop stop-color="#400000" offset="0.82"/>
+            <stop stop-color="#800000" offset="0.89"/>
+            <stop stop-color="#C00000" offset="0.94"/>
+            <stop stop-color="#800000" offset="1"/>            
+        </linearGradient>
+        <linearGradient id="ceiling-curtain-gradient">
+            <stop stop-color="#400000" offset="0"/>
+            <stop stop-color="#700000" offset="0.013"/>
+            <stop stop-color="#800000" offset="0.013"/>
+            <stop stop-color="#C00000" offset="0.03"/>
+            <stop stop-color="#D00000" offset="0.04"/>
+            <stop stop-color="#C00000" offset="0.05"/>
+            <stop stop-color="#600000" offset="0.065"/>
+            <stop stop-color="#B00000" offset="0.078"/>
+            <stop stop-color="#D00000" offset="0.09"/>
+            <stop stop-color="#800000" offset="0.12"/>
+            <stop stop-color="#A00000" offset="0.135"/>
+            <stop stop-color="#D00000" offset="0.145"/>
+            <stop stop-color="#C00000" offset="0.16"/>
+            <stop stop-color="#600000" offset="0.19"/>
+            <stop stop-color="#D00000" offset="0.21"/>
+            <stop stop-color="#800000" offset="0.24"/>            
+            <stop stop-color="#C00000" offset="0.28"/>            
+            <stop stop-color="#600000" offset="0.32"/>
+            <stop stop-color="#800000" offset="0.33"/>            
+            <stop stop-color="#C00000" offset="0.34"/>            
+            <stop stop-color="#800000" offset="0.37"/>
+            <stop stop-color="#D00000" offset="0.39"/>
+            <stop stop-color="#800000" offset="0.42"/>
+            <stop stop-color="#E00000" offset="0.46"/>            
+            <stop stop-color="#A00000" offset="0.51"/>
+            <stop stop-color="#D00000" offset="0.55"/>            
+            <stop stop-color="#800000" offset="0.57"/>
+            <stop stop-color="#D00000" offset="0.61"/>            
+            <stop stop-color="#800000" offset="0.67"/>
+            <stop stop-color="#D00000" offset="0.69"/>
+            <stop stop-color="#800000" offset="0.71"/>
+            <stop stop-color="#C00000" offset="0.74"/>
+            <stop stop-color="#D00000" offset="0.76"/>
+            <stop stop-color="#800000" offset="0.78"/>
+            <stop stop-color="#C00000" offset="0.80"/>
+            <stop stop-color="#E00000" offset="0.83"/>
+            <stop stop-color="#800000" offset="0.86"/>
+            <stop stop-color="#C00000" offset="0.88"/>
+            <stop stop-color="#E00000" offset="0.91"/>
+            <stop stop-color="#800000" offset="0.94"/>
+            <stop stop-color="#C00000" offset="1"/>            
+        </linearGradient>
+        <linearGradient id="stageGradient" x2="0" y2="1">  <!--5-->
+            <stop stop-color="#100800" offset="0"/>
+            <stop stop-color="saddleBrown" offset="0.97"/>
+            <stop stop-color="#A06020" offset="0.97"/>
+            <stop stop-color="saddleBrown" offset="1"/>
+        </linearGradient>
+        <linearGradient id="shadowGradient" x2="0" y2="1"> <!--6-->
+            <stop stop-opacity="0.6" offset="0" />
+            <stop stop-opacity="0" offset="0.97"/>
+        </linearGradient>
+        <radialGradient id="spotlightGradient" cy="0.9" fy="0.6">
+            <stop stop-color="#FFFFFF" offset="0" 
+                  stop-opacity="0.4"/>
+            <stop stop-color="#FFFFFF" offset="0.35" 
+                  stop-opacity="0.1"/>
+            <stop stop-color="#000000" offset="1" 
+                  stop-opacity="0"/>                       <!--7-->
+        </radialGradient>
+        
+        <rect id="stage" width="1000" height="330" y="260" />
+    </defs>
+    
+    <rect id="background" width="100%" height="100%" 
+          fill="black"/>
+    
+    <g id="stage-illuminated">                             <!--8-->
+        <use xlink:href="#stage" fill="url(#stageGradient)"/>
+        <use xlink:href="#stage" fill="url(#shadowGradient)"/>
+        <use xlink:href="#stage" fill="url(#spotlightGradient)"/>
+    </g>
+    
+    <g id="side-curtain-left" >                            <!--9-->
+        <use xlink:href="#curtain" class="curtain-shadow" 
+             x="-1" y="3"/> 
+        <use xlink:href="#curtain" class="side-curtain"/>
+    </g>
+    <g id="side-curtain-right" 
+       transform="translate(1000,0) scale(-1,1)">          <!--10-->
+        <use xlink:href="#side-curtain-left"/>
+    </g>
+    <g id="ceiling-curtain">                               <!--11-->
+        <use xlink:href="#ceiling-curtain" class="curtain-shadow" 
+             x="5" y="5" />
+        <use xlink:href="#ceiling-curtain" 
+             class="ceiling-curtain"/>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     width="4in" height="1in"> 
+    <title xml:lang="en">Striped Gradient</title>
+    <linearGradient id="red-blue-4">
+        <stop stop-color="red" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.3"/>
+        <stop stop-color="lightSkyBlue" offset="0.7"/>
+        <stop stop-color="red" offset="0.7"/>
+    </linearGradient>
+    <rect width="100%" height="100%" fill="url(#red-blue-4)" /> 
+</svg>     

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="4in" height="6.5in" viewBox="0 0 400 650">
+    <title xml:lang="en">Transformed Patterns</title>
+    <pattern id="triangles" patternUnits="userSpaceOnUse"
+             width="20" height="17.32" 
+             patternTransform="skewX(30)">                       <!--1-->
+        <rect width="30" height="20" fill="lightGreen" />
+        <polygon points="0,0 20,0 0,17.32" fill="forestgreen" /> <!--2-->
+    </pattern>
+    <pattern id="argyle" patternUnits="userSpaceOnUse"
+             width="20" height="20"
+             patternTransform="scale(2,4) rotate(45)">           <!--3-->
+        <rect fill="mediumPurple" width="20" height="20"/>
+        <rect fill="indigo" width="10" height="10"/>             <!--4-->
+        <rect fill="navy" width="10" height="10"
+              x="10" y="10"/>
+        <path stroke="lavender" stroke-width="0.25" fill="none" 
+              d="M0,5  L20,5  M5,0  L5,20
+                 M0,15 L20,15 M15,0 L15,20" />                   <!--5-->
+    </pattern>
+             
+    
+    <rect width="400" height="325" fill="url(#triangles)" />
+    <rect width="400" height="325" y="325" 
+          fill="url(#argyle)" />
+</svg>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Interactive Animated Gradient with JavaScript</title>
+    <style type='text/css'>
+        html {
+            background-color: #222;
+            color: lightSkyBlue;
+        }
+        svg.defs-only {
+            display: block;
+            position: absolute;
+            height: 0; width: 0;
+            overflow: hidden;
+        }
+        
+        [role="checkbox"]{
+            display: inline-block;
+            max-width: 33%;
+            min-width: 5em;  
+            padding: 0; margin: 0;
+            font-size: larger;
+        }
+        figcaption {
+            display: block;
+            text-align: center;
+        }
+        [role="checkbox"] > svg {
+            display: block;
+            margin: auto;
+            width: 4em;
+            height: 4em;
+        }        
+        .star {
+            fill: url(#silver-shine);
+        }        
+    </style>
+</head>
+<body>
+    <svg class="defs-only"
+         aria-hidden="true" focusable="false" width="0" height="0">
+        <linearGradient id="silver-shine" spreadMethod="repeat"
+                        gradientTransform="rotate(20)" >
+            <stop offset="0" stop-color="gray" />
+            <stop offset="0.25" stop-color="silver" />
+            <stop offset="1" stop-color="gray" />
+        </linearGradient>
+        <linearGradient id="gold-shine" spreadMethod="repeat"
+                        gradientTransform="rotate(20)" >
+            <stop offset="0" stop-color="gold" />
+            <stop offset="0.25" stop-color="lightYellow" />
+            <stop offset="1" stop-color="gold" />
+        </linearGradient>
+        <radialGradient id="gold-ripple" r="0.2">
+            <stop offset="0" stop-color="gold" />
+            <stop offset="0.5" stop-color="lightYellow" />
+            <stop offset="0.75" stop-color="silver" />
+            <stop offset="1" stop-color="gray" />
+        </radialGradient>
+        <pattern id="turn-gold" width="1" height="1" 
+                 patternContentUnits="objectBoundingBox">
+            <rect class="transition"
+                  fill="url(#gold-ripple)" width="1" height="1" />
+            <rect class="on" 
+                  fill="url(#gold-shine)" width="1" height="1" />            
+            <rect class="off"
+                  fill="url(#silver-shine)" width="1" height="1" />
+        </pattern>
+        <symbol id="star" viewBox="0 0 200 200">
+            <path d="M100,10 L150,140 20,50 180,50 50,140 Z" />
+        </symbol>
+    </svg>
+    <h1>Pick your favorite:</h1>
+    <div>
+        <figure id="opt1" role="checkbox" tabindex="0">
+            <figcaption>Option 1</figcaption>
+            <svg><use class="star" xlink:href="#star"/></svg>
+        </figure>
+        <figure id="opt2" role="checkbox" tabindex="0">
+            <figcaption>Option 2</figcaption>
+            <svg><use class="star" xlink:href="#star"/></svg>
+        </figure>
+        <figure id="opt3" role="checkbox" tabindex="0">
+            <figcaption>Option 3</figcaption>
+            <svg><use class="star" xlink:href="#star"/></svg>
+        </figure>
+    </div>
+    <script>
+(function(){
+    var toggles = document.querySelectorAll("[role='checkbox']");
+    var selectGraphic = ".star";
+    var svg = document.querySelector("svg"); 
+        //arbitrary <svg> element so that we can access SVG dom methods
+    var paint = {
+                  off: "url(#silver-shine)",
+                  animate: "url(#turn-gold)",
+                  on: "url(#gold-shine)"
+                };                                              //<1>
+    var animating = false,
+        animatingOption,
+        nextFrame;
+    
+    
+    for (var i=0, n=toggles.length; i<n; i++){                  //<2>
+        toggles[i].setAttribute("aria-checked", false);
+        toggles[i].querySelector(selectGraphic).style.fill 
+            = paint.off;
+        toggles[i].addEventListener("click", toggleState);
+        toggles[i].addEventListener("keyup", checkKey);
+        
+        //tell Internet Explorer not to focus <svg>
+        toggles[i].querySelector("svg").setAttribute("focusable", false);
+    }
+    function checkKey(e) {                                      //<3>
+        //check for spacebar or enter key,
+        //using both the new standard syntax
+        //and the old keycode syntax
+        if ( (e.key == " ")||(e.key == "Enter") ||
+             (e.keyCode == 32 )||(e.keyCode == 13) )
+            toggleState.apply(this, arguments);
+    }
+    function toggleState(e){                                    //<4>
+        var currentlyChecked = 
+                (this.getAttribute("aria-checked") 
+                        === true.toString() );    
+        
+        //update the actual state
+        this.setAttribute("aria-checked", !currentlyChecked);
+            /* maybe do something based on the selected options */
+              
+        if (currentlyChecked) {
+            //animate turning off quickly
+            animateStar(this, e, 300, true);                    //<5>
+        }
+        else {
+            //animate turning on, more slowly
+            animateStar(this, e, 1000);
+        }
+    }
+    
+    function animateStar(option, event, dur, reverse) {
+        if ((!dur)||isNaN(dur)) return; 
+            //must have a valid animation duration
+        
+        /* animation parameters */
+        var effects = [                                         //<6>
+                    {selector:"#gold-ripple", attr:"r", 
+                     from:0.1, to:1, t1:0.1, t2:0.8},
+                    {selector:"#turn-gold .on", attr:"opacity", 
+                     from:0, to:1, t1:0.8, t2:1},
+                    {selector:"#turn-gold .off", attr:"opacity", 
+                     from:1, to:0, t1:0, t2:0.2}
+                    ];  
+        var selectTracker = "#gold-ripple";
+        var star = option.querySelector(selectGraphic);
+        var startTime = 0;    
+        
+        if (reverse) {
+            //swap the order of each effect
+            effects.forEach(function(effect){
+                var swap = effect.from;
+                effect.from = effect.to;
+                effect.to = swap;
+                
+                swap = effect.t1;
+                effect.t1 = 1 - effect.t2;
+                effect.t2 = 1 - swap;
+            });
+        }
+        
+        if (animating){                                         //<7>
+            //abort current animation 
+            cancelAnimationFrame(nextFrame);
+            
+            if (animatingOption != option) {
+                //tidy up the current animation by setting
+                //it to the correct end state
+                animatingOption.querySelector(selectGraphic)
+                    .style.fill = 
+                    (animatingOption.getAttribute("aria-checked") 
+                            === true.toString() ) ?
+                    paint.on : paint.off;
+            }
+            else {
+                //set the new animation to start from the current state
+                effects.forEach(function(effect){
+                    effect.from = parseFloat(
+                            document.querySelector(effect.selector)
+                                    .getAttribute(effect.attr) );
+                });
+            }
+        }
+        
+        var track = document.querySelector(selectTracker);
+        if (event instanceof MouseEvent) {                      //<8>
+            //re-center the radial gradient
+            //to track the mouse event
+            //by converting mouse coordinates first to 
+            //userSpace coordinates for the star,
+            //and then to bounding box coordinates
+            var bbox = star.getBBox(),
+                CTM = star.getScreenCTM().inverse(),
+                p = svg.createSVGPoint(),
+                p2, newCx, newCy;
+            p.x = event.clientX;  //NOT screenX and screenY
+            p.y = event.clientY;
+            p2 = p.matrixTransform(CTM);
+            newCx = (p2.x - bbox.x)/bbox.width;
+            newCy = (p2.y - bbox.y)/bbox.height;
+            if (!animating ||(animatingOption != option)) {
+                //start immediately at the mouse point
+                track.setAttribute("cx", newCx);
+                track.setAttribute("cy", newCy);
+            }
+            else {
+                //create an animated shift in the gradient center
+                var oldCx = parseFloat(track.getAttribute("cx"));
+                var oldCy = parseFloat(track.getAttribute("cy"));
+                effects.push(
+                    {selector: selectTracker, attr:"cx", 
+                     from: oldCx, to: newCx, 
+                     t1: 0, t2: 0.2
+                    } );
+                effects.push(
+                    {selector: selectTracker, attr:"cy", 
+                     from: oldCy, to: newCy,  
+                     t1: 0, t2: 0.2
+                    } );
+            }
+        }
+        else {
+            //center gradient if triggered by keyboard event
+            track.setAttribute("cx", 0.5);
+            track.setAttribute("cy", 0.5);
+        }
+        
+        //set overall animation parameters & initialize
+        animating = true;
+        animatingOption = option;
+        requestAnimationFrame(function(t){
+            startTime = t;
+            star.style.fill = paint.animate;                    //<9>
+        });
+            
+    
+        //create a function to transform a time point
+        //into a position in the animation effects
+        var getProgress = function(t){ return (t-startTime)/dur; };
+    
+        //determine which element will be animated for each effect
+        //and the total amount of change
+        effects.forEach(function(effect){
+            effect.node = document.querySelector(effect.selector);
+            effect.by = effect.to - effect.from;
+        });
+    
+        function applyEffects(t){                               //<10>
+            var a = getProgress(t),
+                val;
+            effects.forEach(function(effect){
+                if(a <= effect.t1) {
+                    val = effect.from;
+                }
+                else if (a >= effect.t2) {
+                    val = effect.to;
+                }
+                else {
+                    val = effect.from + effect.by*(
+                        (a - effect.t1)/(effect.t2 - effect.t1) );
+                }
+                effect.node.setAttribute(effect.attr, val);
+            });        
+            
+            if ( a < 1 ) {    
+                //loop
+                nextFrame = requestAnimationFrame(applyEffects);
+            }
+            else {
+                //animation is complete
+                star.style.fill = reverse? paint.off : paint.on;
+                animating = false;
+            }
+        }
+        //start updating
+        nextFrame = requestAnimationFrame(applyEffects);
+    }
+})();
+    </script>
+</body>
+</html>

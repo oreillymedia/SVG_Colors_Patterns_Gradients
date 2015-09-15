@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 400 200"
+     width="4in" height="2in">
+    <title xml:lang="en">shape-rendering Effects</title>
+    <style>
+        svg {border: solid thin lightBlue; margin: 1em;}
+        path {fill: none; stroke:black;}
+    </style>
+    <g shape-rendering="crispEdges">
+        <path id="p"
+              d="M10,10 
+                 H390 V90 H10 V20 
+                 H380 V80 H20 V30
+                 H370 V70 H30 V40
+                 q12.5,0 25,10 t25,10 
+                 t25,-10 t25,-10 
+                 t25,10 t25,10 
+                 t25,-10 t25,-10 
+                 t25,10 t25,10
+                 t25,-10 t25,-10
+                 t25,10 c25,25 -25,0 5,-5"/>
+    </g>
+    <use xlink:href="#p" y="100"
+         shape-rendering="geometricPrecision"/>
+</svg>
