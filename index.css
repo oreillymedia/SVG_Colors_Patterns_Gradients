@@ -1,0 +1,100 @@
+html {
+  background-color: #d8e8f0;
+  background: linear-gradient(-45deg, #eee, #cdf, #eee 140vw);
+  min-height: 100%;
+}
+body {
+  margin: auto;
+  padding: 0;
+}
+header, footer, main {
+  display: block;
+  padding: 0.5em 1em;
+}
+@media (max-width: 25em) {
+  header, footer, main {
+    padding: 0.3em;
+  }
+  main > ul {
+    padding-left: 1em;
+  }
+}
+header, footer {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #212;
+}
+header p, footer p {
+  margin: 0.2em auto;
+  line-height: 1.2;
+}
+header h1 {
+  margin: 0.5em 0;
+  text-shadow: 1.5px 1px #a8c;
+}
+footer {
+  border-top: solid thin currentColor;
+}
+
+main {
+  font-family: Tahoma, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #023;
+}
+main h1 {
+  text-shadow: 1.5px 1px #8ad;
+}
+main > *, footer {
+  max-width: 40rem;
+  margin: 1rem auto;
+}
+li {
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+  list-style-image: radial-gradient(closest-side, 
+    #468, #023 98%, transparent 100%);
+}
+li ul {
+  padding-left: 1.5em;
+}
+li li {
+  margin: 0.1em;
+  list-style-image: radial-gradient(closest-side, 
+    #8ad, #246 98%, transparent 100%);
+}
+
+:link {
+  color: #138;
+  text-decoration-style: dotted;
+}
+:visited {
+  color: #426;
+}
+header :link, header :visited {
+  color: inherit;
+  text-decoration: none;
+}
+code {
+  font-family: DejaVu Sans Mono, monospace;
+}
+
+@media (min-width: 52em) {
+  main > ul { 
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 1em 0;
+    -moz-column-width: 25em;
+    -webkit-column-width: 25em;
+    column-width: 25em;
+    -moz-column-gap: 2em;
+    -webkit-column-gap: 2em;
+    column-gap: 2em;
+  }
+  li {
+    page-break-inside: avoid; /* used for columns by Firefox */
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
