@@ -1,8 +1,8 @@
 SVG Colors, Patterns & Gradients
 ================================
 
-<img style="float:left; display: block;" src="http://akamaicovers.oreilly.com/images/0636920043065/bkt.gif" />
-This is the example code that accompanies _SVG Colors, Patterns & Gradients_ by Amelia Bellamy-Royds and Kurt Cagle (ISBN 9781491933749). 
+<img style="float:left; display: block;" src="http://akamaicovers.oreilly.com/images/0636920043065/cat.gif" />
+This is the example code that accompanies _SVG Colors, Patterns & Gradients_ by Amelia Bellamy-Royds and Kurt Cagle. 
 
 To view the files on the web, start with [the table of contents on GitHub Pages](http://oreillymedia.github.io/SVG_Colors_Patterns_Gradients/).
 
